@@ -8,51 +8,45 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;scroll-behavior:smooth;}
 body{background:#0a0f1c;color:#e2e8f0;overflow-x:hidden;}
 canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
-
-/* NAVBAR */
 nav{position:fixed;width:100%;top:0;display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);z-index:1000;}
 nav h2{color:#00f7ff;font-size:1.5rem;}
 nav ul{list-style:none;display:flex;gap:20px;}
 nav ul li a{text-decoration:none;color:white;transition:0.3s;}
 nav ul li a:hover{color:#00f7ff;}
-
-/* WELCOME PAGE */
 #welcome{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
 #welcome h1{font-size:3rem;color:#00f7ff;animation:fadeIn 2s ease;}
 #welcome p{margin-top:10px;font-size:1.2rem;color:#94a3b8;}
 #welcome button{margin-top:30px;padding:12px 25px;border:none;border-radius:25px;background:#00f7ff;color:#0a0f1c;font-size:1.1rem;cursor:pointer;transition:0.3s;}
 #welcome button:hover{background:#0ff;transform:scale(1.1);}
-
-/* SECTIONS */
+.gamer-tags {margin-top: 15px;font-size:18px;text-align:center;}
+.highlight {color:#00ffcc;font-weight:bold;text-shadow:0 0 10px #00ffcc;}
 section{padding:100px 20px;max-width:1100px;margin:auto;}
 h2{font-size:2rem;margin-bottom:30px;border-left:4px solid #00f7ff;padding-left:10px;}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
 .card{background:#111827;padding:25px;border-radius:15px;transition:0.4s;box-shadow:0 0 10px rgba(0,247,255,0.1);}
 .card:hover{transform:translateY(-8px);box-shadow:0 0 20px #00f7ff;}
-.card img, .card video{width:100%;border-radius:10px;margin-top:15px;box-shadow:0 0 15px #00f7ff;}
-.highlight{color:#00f7ff;font-weight:bold;}
-
-/* SKILLS */
+.card img, .card video{width:100%;border-radius:10px;margin-top:15px;box-shadow:0 0 15px #00ffcc;}
+.gamer-profile{background:#111827;padding:25px;border-radius:15px;margin-top:30px;box-shadow:0 0 10px rgba(0,247,255,0.1);text-align:center;}
+.gamer-profile img{width:150px;height:150px;border-radius:50%;border:3px solid #00ffcc;box-shadow:0 0 15px #00ffcc;margin-bottom:15px;}
+.slider {position:relative;overflow:hidden;border-radius:15px;margin-top:20px;}
+.slides {display:flex;transition:0.6s ease;}
+.slides img, .slides video {width:100%;border-radius:10px;flex-shrink:0;}
+.prev, .next {position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:#00ffcc;padding:10px;border:none;cursor:pointer;border-radius:50%;font-size:1.2rem;}
+.prev{left:10px;} .next{right:10px;}
+.dots {text-align:center;margin-top:15px;}
+.dot {height:12px;width:12px;margin:0 5px;display:inline-block;background:#555;border-radius:50%;cursor:pointer;}
+.active-dot{background:#00ffcc;}
 .skills span{display:inline-block;background:#111827;padding:8px 15px;margin:6px;border-radius:20px;box-shadow:0 0 8px rgba(0,247,255,0.2);}
-
-/* STATS */
 .stats{display:flex;justify-content:space-around;flex-wrap:wrap;text-align:center;margin-top:40px;}
 .stat{margin:20px;}
-.stat h3{font-size:2.5rem;color:#00f7ff;}
-
-/* JOKES & RIDDLES */
+.stat h3{font-size:2.5rem;color:#00ffcc;}
 .interactive-card{background:#111827;padding:25px;border-radius:15px;margin-top:20px;text-align:center;cursor:pointer;box-shadow:0 0 10px rgba(0,247,255,0.1);}
-.interactive-card:hover{box-shadow:0 0 20px #00f7ff;}
-
-/* CONTACT */
-.contact p{margin:8px 0;font-size:1.1rem;}
-.contact a{color:#00f7ff;text-decoration:none;}
-.contact a:hover{text-decoration:underline;}
-
-/* FOOTER */
+.interactive-card:hover{box-shadow:0 0 20px #00ffcc;}
+form{display:flex;flex-direction:column;gap:15px;margin-top:20px;}
+input, textarea{padding:10px;border-radius:10px;border:none;background:#1f2937;color:#e2e8f0;}
+button.submit-btn{background:#00ffcc;color:#0a0f1c;border:none;padding:12px;border-radius:25px;font-weight:bold;cursor:pointer;transition:0.3s;}
+button.submit-btn:hover{background:#00f7ff;}
 footer{text-align:center;padding:30px;background:#020617;color:#94a3b8;margin-top:40px;}
-
-/* ANIMATIONS */
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 @media(max-width:600px){header h1,#welcome h1{font-size:2rem;}nav{padding:15px;}}
 </style>
@@ -61,82 +55,117 @@ footer{text-align:center;padding:30px;background:#020617;color:#94a3b8;margin-to
 
 <canvas id="particles"></canvas>
 
-<!-- NAVBAR -->
 <nav>
   <h2>UnknownCyber</h2>
   <ul>
     <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#portfolio">What I’m Doing</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#fun">Fun</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- WELCOME PAGE -->
 <section id="welcome">
   <h1>Welcome to UnknownCyber’s Gamer Hub!</h1>
   <p>eFootball & CODM • Computer Operator • 3+ Years Experience</p>
+  <div class="gamer-tags">
+    <p>🎮 eFootball: <span class="highlight">unknown_cyber</span></p>
+    <p>🔫 CODM: <span class="highlight">Ur_only_CYBER</span></p>
+  </div>
   <button onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Enter My Portfolio</button>
 </section>
 
-<!-- WHAT I’M DOING -->
 <section id="portfolio">
 <h2>What I’m Doing</h2>
-<div class="card-grid">
-  <!-- eFootball & CODM Images -->
-  <div class="card">
-    <h3>eFootball Squad</h3>
+<div class="slider">
+  <div class="slides">
     <img src="images/Screenshot_20260219-234407.png" alt="Squad Screenshot">
     <img src="images/Screenshot_20260220-012646.png" alt="Squad Screenshot">
     <img src="images/Screenshot_20260220-012642.png" alt="Squad Screenshot">
     <img src="images/Screenshot_20260220-012657.png" alt="Squad Screenshot">
+    <video controls muted src="videos/20260219234450.mp4"></video>
+    <video controls muted src="videos/lv_7597217801748663560_20260220024121.mp4"></video>
+    <video controls muted src="videos/lv_7553461464594386229_20260220025604.mp4"></video>
   </div>
-  <!-- Video Carousel -->
-  <div class="card">
-    <h3>Gameplay Videos</h3>
-    <video controls src="videos/20260219234450.mp4"></video>
-    <video controls src="videos/lv_7597217801748663560_20260220024121.mp4"></video>
-    <video controls src="videos/lv_7553461464594386229_20260220025604.mp4"></video>
-  </div>
+  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+<div class="dots">
+  <span class="dot" onclick="currentSlide(0)"></span>
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
 </div>
 
-<!-- Stats -->
 <div class="stats">
   <div class="stat"><h3 id="years">0</h3><p>Years Experience</p></div>
   <div class="stat"><h3 id="games">0</h3><p>Competitive Games</p></div>
 </div>
 </section>
 
-<!-- ABOUT ME -->
+<section class="gamer-profile">
+<img src="images/IMG-20250724-WA0356.jpg" alt="Profile Picture">
+<h2>🎮 Gamer Profile</h2>
+<p><strong>Name:</strong> Paschal Kamsiyochukwu</p>
+<p><strong>eFootball Username:</strong> <span class="highlight">unknown_cyber</span></p>
+<p><strong>CODM Username:</strong> <span class="highlight">Ur_only_CYBER</span></p>
+<p><strong>Squad Strength:</strong> 3183</p>
+<p><strong>Experience:</strong> 3 Years Computer Operator</p>
+</section>
+
 <section id="about">
 <h2>About Me</h2>
 <p>I am <span class="highlight">Paschal Kamsiyochukwu</span>, a Computer Operator with 3+ years experience. Outside work, I’m a competitive eFootball & CODM gamer specializing in <span class="highlight">Long Ball Counter</span> and <span class="highlight">Rewind Class</span> tactics.</p>
 </section>
 
-<!-- JOKES & RIDDLES -->
 <section id="fun">
 <h2>Fun Center</h2>
 <div class="interactive-card" onclick="showJoke()">🎮 Random Joke</div>
 <p id="joke" style="margin-top:10px;"></p>
-
 <div class="interactive-card" onclick="showRiddle()">🧩 Random Riddle</div>
 <p id="riddle" style="margin-top:10px;"></p>
-<p id="riddleAnswer" style="margin-top:5px;color:#00f7ff;"></p>
+<p id="riddleAnswer" style="margin-top:5px;color:#00ffcc;"></p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
 <h2>How to Reach Me</h2>
 <div class="contact">
-<p>WhatsApp: <a href="https://wa.me/2349161362962">+2349161362962</a></p>
-<p>Snapchat: <a href="#">Paschal kamsi</a></p>
-<p>Email: <a href="mailto:azubuikepaschal6@gmail.com">azubuikepaschal6@gmail.com</a></p>
+  <p>WhatsApp: <a href="https://wa.me/2349161362962">+2349161362962</a></p>
+  <p>Snapchat: <a href="#">Paschal kamsi</a></p>
+  <p>Email: <a href="mailto:azubuikepaschal6@gmail.com">azubuikepaschal6@gmail.com</a></p>
 </div>
+
+<h3>Send Me Feedback</h3>
+<form id="feedback-form">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Feedback" required></textarea>
+  <button type="submit" class="submit-btn">Send Feedback</button>
+</form>
+<p id="status" style="margin-top:10px;color:#00ffcc;"></p>
 </section>
 
 <footer>© 2026 Paschal Kamsiyochukwu | UnknownCyber</footer>
 
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
+// EmailJS Feedback Form
+(function(){ emailjs.init("_ocREorvJNlfkEtJd"); })();
+document.getElementById('feedback-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  emailjs.sendForm('service_dqs808b','template_ylksb1b',this)
+  .then(function(){
+    document.getElementById('status').innerText = "Feedback sent! Thank you 😎";
+    document.getElementById('feedback-form').reset();
+  }, function(error){
+    document.getElementById('status').innerText = "Oops, something went wrong...";
+    console.error(error);
+  });
+});
+
 // Stats Counter
 function animateValue(id,start,end,duration){
   let range=end-start,current=start,increment=end>start?1:-1,stepTime=Math.abs(Math.floor(duration/range));
@@ -148,7 +177,7 @@ animateValue("games",0,3183,2000);
 // Particles
 const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;canvas.height=window.innerHeight;let particlesArray=[];
-class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2;this.speedX=Math.random()*1-0.5;this.speedY=Math.random()*1-0.5;}update(){this.x+=this.speedX;this.y+=this.speedY;}draw(){ctx.fillStyle="#00f7ff";ctx.fillRect(this.x,this.y,this.size,this.size);}}
+class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2;this.speedX=Math.random()*1-0.5;this.speedY=Math.random()*1-0.5;}update(){this.x+=this.speedX;this.y+=this.speedY;}draw(){ctx.fillStyle="#00ffcc";ctx.fillRect(this.x,this.y,this.size,this.size);}}
 function init(){for(let i=0;i<150;i++){particlesArray.push(new Particle());}}init();
 function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);for(let i=0;i<particlesArray.length;i++){particlesArray[i].update();particlesArray[i].draw();}requestAnimationFrame(animate);}animate();
 
@@ -157,6 +186,23 @@ const jokes=["Why did the gamer go broke? Because he used all his cache!","Why d
 function showJoke(){document.getElementById("joke").textContent=jokes[Math.floor(Math.random()*jokes.length)];}
 const riddles=[{q:"What has keys but can’t open locks?",a:"A piano."},{q:"I speak without a mouth and hear without ears. What am I?",a:"An echo."},{q:"What runs but never walks?",a:"A river."}];
 function showRiddle(){let r=riddles[Math.floor(Math.random()*riddles.length)];document.getElementById("riddle").textContent=r.q;document.getElementById("riddleAnswer").textContent=r.a;}
+
+// Slider
+let slideIndex = 0;
+const slides = document.querySelector('.slides').children;
+const dots = document.querySelectorAll('.dot');
+function showSlide(index){
+  if(index>=slides.length){slideIndex=0;}
+  else if(index<0){slideIndex=slides.length-1;}
+  else{slideIndex=index;}
+  for(let i=0;i<slides.length;i++){slides[i].style.display='none';dots[i].classList.remove('active-dot');}
+  slides[slideIndex].style.display='block';
+  dots[slideIndex].classList.add('active-dot');
+}
+function changeSlide(n){showSlide(slideIndex += n);}
+function currentSlide(n){showSlide(slideIndex = n);}
+showSlide(slideIndex);
+setInterval(()=>{changeSlide(1);},5000);
 </script>
 </body>
 </html>
