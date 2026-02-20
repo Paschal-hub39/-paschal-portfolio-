@@ -4,33 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paschal Kamsiyochukwu | Gamer Portfolio</title>
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:'Segoe UI',sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;scroll-behavior:smooth;}
 body{background:#0a0f1c;color:#e2e8f0;overflow-x:hidden;}
+canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
 
 /* NAVBAR */
-nav{position:fixed;width:100%;top:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;padding:15px 30px;z-index:1000;}
+nav{position:fixed;width:100%;top:0;display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);z-index:1000;}
 nav h2{color:#00f7ff;font-size:1.5rem;}
 nav ul{list-style:none;display:flex;gap:20px;}
 nav ul li a{text-decoration:none;color:white;transition:0.3s;}
 nav ul li a:hover{color:#00f7ff;}
 
-/* HERO */
-header{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;position:relative;}
-header h1{font-size:3rem;color:#00f7ff;animation:fadeIn 2s ease;}
-header p{margin-top:10px;font-size:1.2rem;color:#94a3b8;}
-header img{width:160px;height:160px;border-radius:50%;border:4px solid #00f7ff;margin-top:20px;box-shadow:0 0 20px #00f7ff;}
+/* WELCOME PAGE */
+#welcome{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+#welcome h1{font-size:3rem;color:#00f7ff;animation:fadeIn 2s ease;}
+#welcome p{margin-top:10px;font-size:1.2rem;color:#94a3b8;}
+#welcome button{margin-top:30px;padding:12px 25px;border:none;border-radius:25px;background:#00f7ff;color:#0a0f1c;font-size:1.1rem;cursor:pointer;transition:0.3s;}
+#welcome button:hover{background:#0ff;transform:scale(1.1);}
 
 /* SECTIONS */
 section{padding:100px 20px;max-width:1100px;margin:auto;}
 h2{font-size:2rem;margin-bottom:30px;border-left:4px solid #00f7ff;padding-left:10px;}
-
-/* CARDS */
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
 .card{background:#111827;padding:25px;border-radius:15px;transition:0.4s;box-shadow:0 0 10px rgba(0,247,255,0.1);}
 .card:hover{transform:translateY(-8px);box-shadow:0 0 20px #00f7ff;}
-.card img{width:100%;border-radius:10px;margin-top:15px;box-shadow:0 0 15px #00f7ff;}
+.card img, .card video{width:100%;border-radius:10px;margin-top:15px;box-shadow:0 0 15px #00f7ff;}
 .highlight{color:#00f7ff;font-weight:bold;}
 
 /* SKILLS */
@@ -41,6 +40,10 @@ h2{font-size:2rem;margin-bottom:30px;border-left:4px solid #00f7ff;padding-left:
 .stat{margin:20px;}
 .stat h3{font-size:2.5rem;color:#00f7ff;}
 
+/* JOKES & RIDDLES */
+.interactive-card{background:#111827;padding:25px;border-radius:15px;margin-top:20px;text-align:center;cursor:pointer;box-shadow:0 0 10px rgba(0,247,255,0.1);}
+.interactive-card:hover{box-shadow:0 0 20px #00f7ff;}
+
 /* CONTACT */
 .contact p{margin:8px 0;font-size:1.1rem;}
 .contact a{color:#00f7ff;text-decoration:none;}
@@ -49,12 +52,9 @@ h2{font-size:2rem;margin-bottom:30px;border-left:4px solid #00f7ff;padding-left:
 /* FOOTER */
 footer{text-align:center;padding:30px;background:#020617;color:#94a3b8;margin-top:40px;}
 
-/* PARTICLES */
-canvas{position:fixed;top:0;left:0;z-index:-1;width:100%;height:100%;}
-
 /* ANIMATIONS */
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-@media(max-width:600px){header h1{font-size:2rem;}nav{padding:15px;}}
+@media(max-width:600px){header h1,#welcome h1{font-size:2rem;}nav{padding:15px;}}
 </style>
 </head>
 <body>
@@ -67,133 +67,96 @@ canvas{position:fixed;top:0;left:0;z-index:-1;width:100%;height:100%;}
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#efootball">eFootball</a></li>
-    <li><a href="#codm">CODM</a></li>
+    <li><a href="#portfolio">What I’m Doing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
-<header>
-  <h1>Paschal Kamsiyochukwu</h1>
-  <p>Computer Operator • eFootball Long Ball Counter Specialist • CODM Rewind Player</p>
-  <img src="images/IMG-20250724-WA0356.jpg" alt="Profile Picture">
-</header>
+<!-- WELCOME PAGE -->
+<section id="welcome">
+  <h1>Welcome to UnknownCyber’s Gamer Hub!</h1>
+  <p>eFootball & CODM • Computer Operator • 3+ Years Experience</p>
+  <button onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Enter My Portfolio</button>
+</section>
 
-<!-- ABOUT -->
+<!-- WHAT I’M DOING -->
+<section id="portfolio">
+<h2>What I’m Doing</h2>
+<div class="card-grid">
+  <!-- eFootball & CODM Images -->
+  <div class="card">
+    <h3>eFootball Squad</h3>
+    <img src="images/Screenshot_20260219-234407.png" alt="Squad Screenshot">
+    <img src="images/Screenshot_20260220-012646.png" alt="Squad Screenshot">
+    <img src="images/Screenshot_20260220-012642.png" alt="Squad Screenshot">
+    <img src="images/Screenshot_20260220-012657.png" alt="Squad Screenshot">
+  </div>
+  <!-- Video Carousel -->
+  <div class="card">
+    <h3>Gameplay Videos</h3>
+    <video controls src="videos/20260219234450.mp4"></video>
+    <video controls src="videos/lv_7597217801748663560_20260220024121.mp4"></video>
+    <video controls src="videos/lv_7553461464594386229_20260220025604.mp4"></video>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat"><h3 id="years">0</h3><p>Years Experience</p></div>
+  <div class="stat"><h3 id="games">0</h3><p>Competitive Games</p></div>
+</div>
+</section>
+
+<!-- ABOUT ME -->
 <section id="about">
-  <h2>About Me</h2>
-  <p>I am <span class="highlight">Paschal Kamsiyochukwu</span>, a Computer Operator with 3+ years experience in digital systems and workflow management. Outside work, I’m a competitive eFootball and CODM gamer focused on strategy, precision, and high performance.</p>
+<h2>About Me</h2>
+<p>I am <span class="highlight">Paschal Kamsiyochukwu</span>, a Computer Operator with 3+ years experience. Outside work, I’m a competitive eFootball & CODM gamer specializing in <span class="highlight">Long Ball Counter</span> and <span class="highlight">Rewind Class</span> tactics.</p>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Technical Skills</h2>
-  <div class="skills">
-    <span>Computer Operations</span>
-    <span>Microsoft Office</span>
-    <span>HTML & CSS</span>
-    <span>Git & GitHub</span>
-    <span>Documentation</span>
-  </div>
-</section>
+<!-- JOKES & RIDDLES -->
+<section id="fun">
+<h2>Fun Center</h2>
+<div class="interactive-card" onclick="showJoke()">🎮 Random Joke</div>
+<p id="joke" style="margin-top:10px;"></p>
 
-<!-- eFootball -->
-<section id="efootball">
-  <h2>eFootball Profile</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Style</h3>
-      <p>Specialist in <span class="highlight">Long Ball Counter</span> with fast transitions and clinical finishing.</p>
-    </div>
-    <div class="card">
-      <h3>Username</h3>
-      <p class="highlight">unknown_cyber</p>
-    </div>
-    <div class="card">
-      <h3>Squad Highlights</h3>
-      <img src="images/Screenshot_20260219-234407.png" alt="Squad Screenshot">
-      <img src="images/Screenshot_20260220-012646.png" alt="Squad Screenshot">
-      <img src="images/Screenshot_20260220-012642.png" alt="Squad Screenshot">
-      <img src="images/Screenshot_20260220-012657.png" alt="Squad Screenshot">
-      <img src="images/Screenshot_20260208-161145.png" alt="Squad Screenshot">
-      <img src="images/Screenshot_20260210-003908.png" alt="Squad Screenshot">
-      <img src="images/Screenshot_20260211-230914.png" alt="Squad Screenshot">
-      <img src="images/Screenshot_20260211-225146.png" alt="Squad Screenshot">
-    </div>
-  </div>
-</section>
-
-<!-- CODM -->
-<section id="codm">
-  <h2>Call of Duty Mobile</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Playstyle</h3>
-      <p>Aggressive tactical gameplay with strong positioning and awareness.</p>
-    </div>
-    <div class="card">
-      <h3>Favorite Class</h3>
-      <p><span class="highlight">Rewind Class</span> for strategic repositioning.</p>
-    </div>
-    <div class="card">
-      <h3>Username</h3>
-      <p class="highlight">Ur_only_cyber</p>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section>
-  <h2>Stats</h2>
-  <div class="stats">
-    <div class="stat">
-      <h3 id="years">0</h3>
-      <p>Years Experience</p>
-    </div>
-    <div class="stat">
-      <h3 id="games">0</h3>
-      <p>Competitive Games</p>
-    </div>
-  </div>
+<div class="interactive-card" onclick="showRiddle()">🧩 Random Riddle</div>
+<p id="riddle" style="margin-top:10px;"></p>
+<p id="riddleAnswer" style="margin-top:5px;color:#00f7ff;"></p>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2>Contact Me</h2>
-  <div class="contact">
-    <p>WhatsApp: <a href="https://wa.me/2349161362962">+2349161362962</a></p>
-    <p>Snapchat: <a href="#">Paschal kamsi</a></p>
-    <p>Email: <a href="mailto:azubuikepaschal6@gmail.com">azubuikepaschal6@gmail.com</a></p>
-  </div>
+<h2>How to Reach Me</h2>
+<div class="contact">
+<p>WhatsApp: <a href="https://wa.me/2349161362962">+2349161362962</a></p>
+<p>Snapchat: <a href="#">Paschal kamsi</a></p>
+<p>Email: <a href="mailto:azubuikepaschal6@gmail.com">azubuikepaschal6@gmail.com</a></p>
+</div>
 </section>
 
-<footer>
-  © 2026 Paschal Kamsiyochukwu | UnknownCyber
-</footer>
+<footer>© 2026 Paschal Kamsiyochukwu | UnknownCyber</footer>
 
 <script>
-// Counter Animation
+// Stats Counter
 function animateValue(id,start,end,duration){
-  let range=end-start;let current=start;let increment=end>start?1:-1;
-  let stepTime=Math.abs(Math.floor(duration/range));
-  let obj=document.getElementById(id);
-  let timer=setInterval(function(){current+=increment;obj.textContent=current;if(current==end){clearInterval(timer);}},stepTime);
+  let range=end-start,current=start,increment=end>start?1:-1,stepTime=Math.abs(Math.floor(duration/range));
+  let obj=document.getElementById(id),timer=setInterval(function(){current+=increment;obj.textContent=current;if(current==end){clearInterval(timer);}},stepTime);
 }
 animateValue("years",0,3,1500);
 animateValue("games",0,3183,2000);
 
-// Particles Background
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;canvas.height=window.innerHeight;
-let particlesArray=[];
+// Particles
+const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;canvas.height=window.innerHeight;let particlesArray=[];
 class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2;this.speedX=Math.random()*1-0.5;this.speedY=Math.random()*1-0.5;}update(){this.x+=this.speedX;this.y+=this.speedY;}draw(){ctx.fillStyle="#00f7ff";ctx.fillRect(this.x,this.y,this.size,this.size);}}
-function init(){for(let i=0;i<150;i++){particlesArray.push(new Particle());}}
-init();
-function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);for(let i=0;i<particlesArray.length;i++){particlesArray[i].update();particlesArray[i].draw();}requestAnimationFrame(animate);}
-animate();
-</script>
+function init(){for(let i=0;i<150;i++){particlesArray.push(new Particle());}}init();
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);for(let i=0;i<particlesArray.length;i++){particlesArray[i].update();particlesArray[i].draw();}requestAnimationFrame(animate);}animate();
 
+// Jokes & Riddles
+const jokes=["Why did the gamer go broke? Because he used all his cache!","Why don’t skeletons fight in games? They don’t have the guts!","Why was the computer cold? It left its Windows open!"];
+function showJoke(){document.getElementById("joke").textContent=jokes[Math.floor(Math.random()*jokes.length)];}
+const riddles=[{q:"What has keys but can’t open locks?",a:"A piano."},{q:"I speak without a mouth and hear without ears. What am I?",a:"An echo."},{q:"What runs but never walks?",a:"A river."}];
+function showRiddle(){let r=riddles[Math.floor(Math.random()*riddles.length)];document.getElementById("riddle").textContent=r.q;document.getElementById("riddleAnswer").textContent=r.a;}
+</script>
 </body>
 </html>
