@@ -1,251 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azubuike Paschal Kamsiyochukwu | Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paschal Kamsiyochukwu | Portfolio</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            padding: 60px 20px;
-            text-align: center;
-        }
+body{
+  background:#0a0f1c;
+  color:#e2e8f0;
+  overflow-x:hidden;
+}
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 20px;
-            object-fit: cover;
-            background: #10B981;
-        }
+/* NAVBAR */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  z-index:1000;
+}
 
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
+nav h2{
+  color:#00f7ff;
+}
 
-        .title {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
 
-        /* Sections */
-        section {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+nav ul li a{
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
+}
 
-        h2 {
-            color: #10B981;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
+nav ul li a:hover{
+  color:#00f7ff;
+}
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin: 30px 0;
-        }
+/* HERO */
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
 
-        .stat-box {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #333;
-        }
+header h1{
+  font-size:3rem;
+  color:#00f7ff;
+  animation:fadeIn 2s ease;
+}
 
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #10B981;
-        }
+header p{
+  margin-top:10px;
+  font-size:1.2rem;
+  color:#94a3b8;
+}
 
-        /* Projects */
-        .project-card {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            transition: transform 0.3s;
-        }
+/* SECTIONS */
+section{
+  padding:100px 20px;
+  max-width:1100px;
+  margin:auto;
+}
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #10B981;
-        }
+h2{
+  font-size:2rem;
+  margin-bottom:30px;
+  border-left:4px solid #00f7ff;
+  padding-left:10px;
+}
 
-        .project-tag {
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.2);
-            color: #10B981;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            margin-bottom: 10px;
-        }
+/* CARDS */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #10B981;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            margin-top: 15px;
-            font-weight: bold;
-        }
+.card{
+  background:#111827;
+  padding:25px;
+  border-radius:15px;
+  transition:0.4s;
+  box-shadow:0 0 10px rgba(0,247,255,0.1);
+}
 
-        .btn:hover {
-            background: #059669;
-        }
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 20px #00f7ff;
+}
 
-        /* Skills */
-        .skill-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
+.highlight{
+  color:#00f7ff;
+  font-weight:bold;
+}
 
-        .skill-item {
-            background: #1a1a1a;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #10B981;
-        }
+/* SKILLS */
+.skills span{
+  display:inline-block;
+  background:#111827;
+  padding:8px 15px;
+  margin:6px;
+  border-radius:20px;
+  box-shadow:0 0 8px rgba(0,247,255,0.2);
+}
 
-        /* Contact */
-        .contact-info {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-        }
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  text-align:center;
+}
 
-        .email {
-            color: #10B981;
-            font-size: 1.2em;
-            word-break: break-all;
-        }
+.stat{
+  margin:20px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #666;
-            border-top: 1px solid #333;
-        }
-    </style>
+.stat h3{
+  font-size:2.5rem;
+  color:#00f7ff;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#020617;
+  color:#94a3b8;
+}
+
+/* PARTICLES */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@media(max-width:600px){
+  header h1{
+    font-size:2rem;
+  }
+  nav{
+    padding:15px;
+  }
+}
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <!-- REPLACE THIS LINE WITH YOUR IMAGE -->
-        <div style="width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, #10B981, #059669); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 3em; color: white; border: 4px solid white;">AP</div>
-        
-        <h1>Azubuike Paschal Kamsiyochukwu</h1>
-        <p class="title">Computer Operator & Aspiring Developer</p>
-    </header>
+<canvas id="particles"></canvas>
 
-    <!-- About -->
-    <section>
-        <h2>About Me</h2>
-        <p>I'm a dedicated Computer Operator with 3 years of practical experience in data management, technical support, and office operations. While I'm not yet an expert, I'm committed to continuous improvement and learning.</p>
-        <br>
-        <p>Currently, I'm expanding my skill set into web development—learning HTML, CSS, JavaScript, and Python. I believe in growing step by step, and every day is an opportunity to learn something new.</p>
-        
-        <div class="stats">
-            <div class="stat-box">
-                <div class="stat-number">3</div>
-                <div>Years Experience</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">6</div>
-                <div>Projects</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">4</div>
-                <div>Skills Learning</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">1</div>
-                <div>Game Created</div>
-            </div>
-        </div>
-    </section>
+<nav>
+  <h2>Unknown Cyber</h2>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#efootball">eFootball</a></li>
+    <li><a href="#codm">CODM</a></li>
+  </ul>
+</nav>
 
-    <!-- Skills -->
-    <section>
-        <h2>My Skills</h2>
-        <div class="skill-list">
-            <div class="skill-item">HTML (70%)</div>
-            <div class="skill-item">CSS (60%)</div>
-            <div class="skill-item">JavaScript (40%)</div>
-            <div class="skill-item">Python (35%)</div>
-            <div class="skill-item">Computer Operations (85%)</div>
-            <div class="skill-item">Technical Support (80%)</div>
-        </div>
-    </section>
+<header>
+  <h1>Paschal Kamsiyochukwu</h1>
+  <p>Computer Operator • eFootball Long Ball Counter Specialist • CODM Rewind Player</p>
+</header>
 
-    <!-- Projects -->
-    <section>
-        <h2>My Projects</h2>
-        
-        <!-- Featured Game -->
-        <div class="project-card" style="border: 2px solid #10B981;">
-            <span class="project-tag">HTML5 GAME</span>
-            <h3>Paschal Kamsiyochukwu Racing 3D</h3>
-            <p>A pseudo-3D racing game built with HTML5 Canvas and JavaScript. Features realistic driving physics, curved roads, enemy AI cars, speedometer, and mini-map.</p>
-            <a href="projects/paschal-racing.html" class="btn">▶ Play Game</a>
-        </div>
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am <span class="highlight">Paschal Kamsiyochukwu</span>, a Computer Operator 
+    with 3+ years experience in digital systems management and workflow organization.
+    I am also a competitive gamer focused on strategy, fast reactions, and precision gameplay.
+  </p>
+</section>
 
-        <div class="project-card">
-            <span class="project-tag">Data Management</span>
-            <h3>Office Database System</h3>
-            <p>Excel-based database system for tracking inventory and employee records.</p>
-        </div>
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <span>Computer Operations</span>
+    <span>Microsoft Office</span>
+    <span>HTML & CSS</span>
+    <span>GitHub</span>
+    <span>Documentation</span>
+  </div>
+</section>
 
-        <div class="project-card">
-            <span class="project-tag">Technical Support</span>
-            <h3>Hardware Maintenance Log</h3>
-            <p>Documentation system for computer repairs and diagnostics.</p>
-        </div>
-    </section>
+<section id="efootball">
+  <h2>eFootball Profile</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Style</h3>
+      <p>Specialist in <span class="highlight">Long Ball Counter</span> with fast transitions and clinical finishing.</p>
+    </div>
+    <div class="card">
+      <h3>Username</h3>
+      <p class="highlight">unknown_cyber</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact -->
-    <section>
-        <h2>Contact Me</h2>
-        <div class="contact-info">
-            <p>I'm open to new opportunities and collaborations.</p>
-            <br>
-            <p class="email">azubuikepaschal6@gmail.com</p>
-            <br>
-            <a href="mailto:azubuikepaschal6@gmail.com" class="btn">Send Email</a>
-        </div>
-    </section>
+<section id="codm">
+  <h2>Call of Duty Mobile</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Playstyle</h3>
+      <p>Aggressive tactical gameplay with strong positioning and awareness.</p>
+    </div>
+    <div class="card">
+      <h3>Favorite Class</h3>
+      <p><span class="highlight">Rewind Class</span> for strategic repositioning.</p>
+    </div>
+    <div class="card">
+      <h3>Username</h3>
+      <p class="highlight">Ur_only_cyber</p>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 Azubuike Paschal Kamsiyochukwu. All Rights Reserved.</p>
-    </footer>
+<section>
+  <h2>Stats</h2>
+  <div class="stats">
+    <div class="stat">
+      <h3 id="years">0</h3>
+      <p>Years Experience</p>
+    </div>
+    <div class="stat">
+      <h3 id="games">0</h3>
+      <p>Competitive Games</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Paschal Kamsiyochukwu | Unknown Cyber
+</footer>
+
+<script>
+// Counter Animation
+function animateValue(id, start, end, duration) {
+  let range = end - start;
+  let current = start;
+  let increment = end > start ? 1 : -1;
+  let stepTime = Math.abs(Math.floor(duration / range));
+  let obj = document.getElementById(id);
+  let timer = setInterval(function() {
+    current += increment;
+    obj.textContent = current;
+    if (current == end) {
+      clearInterval(timer);
+    }
+  }, stepTime);
+}
+
+animateValue("years", 0, 3, 1500);
+animateValue("games", 0, 500, 2000);
+
+// Particles Background
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle {
+  constructor(){
+    this.x = Math.random()*canvas.width;
+    this.y = Math.random()*canvas.height;
+    this.size = Math.random()*2;
+    this.speedX = Math.random()*1 - 0.5;
+    this.speedY = Math.random()*1 - 0.5;
+  }
+  update(){
+    this.x += this.speedX;
+    this.y += this.speedY;
+  }
+  draw(){
+    ctx.fillStyle="#00f7ff";
+    ctx.fillRect(this.x,this.y,this.size,this.size);
+  }
+}
+
+function init(){
+  for(let i=0;i<100;i++){
+    particlesArray.push(new Particle());
+  }
+}
+init();
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(let i=0;i<particlesArray.length;i++){
+    particlesArray[i].update();
+    particlesArray[i].draw();
+  }
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
 
 </body>
 </html>
