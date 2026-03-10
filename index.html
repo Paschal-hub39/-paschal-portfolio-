@@ -1,257 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azubuike Paschal Kamsiyochukwu | Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paschala | Portfolio</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+<!-- PWA Meta -->
+<meta name="theme-color" content="#10B981">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="file_000000007f107246ba147243c1f7bc16.png" type="image/png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Paschala">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            padding: 60px 20px;
-            text-align: center;
-        }
+<style>
+* {margin:0;padding:0;box-sizing:border-box;}
+html {scroll-behavior:smooth;}
+body {font-family: Arial,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6;}
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #10B981;
-            margin-bottom: 20px;
-            object-fit: cover;
-            background: #0a0a0a;
-        }
+/* Navigation */
+nav {
+    position:fixed;top:0;width:100%;background:rgba(10,10,10,0.95);display:flex;justify-content:space-between;align-items:center;padding:10px 20px;z-index:999;border-bottom:1px solid #333;
+}
+nav .logo {color:#10B981;font-weight:bold;font-size:1.3em;}
+nav ul {list-style:none;display:flex;gap:15px;}
+nav ul li a {text-decoration:none;color:#fff;font-weight:bold;transition:.3s;}
+nav ul li a:hover {color:#10B981;}
+.menu-toggle {display:none;cursor:pointer;font-size:1.5em;color:#10B981;}
 
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
+/* Header */
+header {
+    background: linear-gradient(135deg,#10B981,#059669);
+    padding:140px 20px 80px 20px;text-align:center;position:relative;
+}
+.profile-img {width:140px;height:140px;border-radius:50%;border:4px solid #10B981;margin-bottom:20px;background:#0a0a0a;object-fit:cover;}
+h1 {font-size:2em;margin-bottom:10px;animation:fadeIn 1s ease;}
+.title {font-size:1.2em;opacity:.9;animation:fadeIn 1.5s ease;}
+.hero-btn {
+    display:inline-block;margin:10px 5px;padding:12px 28px;border-radius:25px;background:linear-gradient(135deg,#10B981,#059669);
+    color:white;text-decoration:none;font-weight:bold;transition:0.3s;
+}
+.hero-btn:hover {transform: scale(1.08);background: linear-gradient(135deg,#059669,#10B981);}
 
-        .title {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
+/* Sections */
+section {padding:60px 20px;max-width:900px;margin:0 auto;}
+h2 {color:#10B981;margin-bottom:20px;font-size:1.8em;}
 
-        .hero-btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 28px;
-            border-radius: 25px;
-            background: #10B981;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+/* Stats */
+.stats {display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;margin:30px 0;}
+.stat-box {
+    background:#1a1a1a;padding:20px;border-radius:10px;text-align:center;border:1px solid #333;
+    transition: transform .3s,border-color .3s,box-shadow .3s;
+}
+.stat-box:hover {transform: translateY(-5px);border-color:#10B981;box-shadow:0 0 15px #10B981;}
+.stat-number {font-size:2.2em;font-weight:bold;color:#10B981;}
 
-        .hero-btn:hover {
-            transform: scale(1.08);
-            background: #059669;
-        }
+/* Skills */
+.skill-list {display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.skill-item {
+    background:#1a1a1a;padding:15px;border-radius:8px;border-left:4px solid #10B981;transition:.3s, box-shadow .3s;
+}
+.skill-item:hover {box-shadow:0 0 15px #10B981;transform:scale(1.05);}
 
-        /* Sections */
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+/* Projects */
+.project-card {
+    background:#1a1a1a;border:1px solid #333;border-radius:15px;padding:25px;margin-bottom:20px;
+    transition: transform .3s,border-color .3s,box-shadow .3s;
+}
+.project-card:hover {transform:translateY(-5px);border-color:#10B981;box-shadow:0 0 20px #10B981;}
+.project-tag {display:inline-block;background:rgba(16,185,129,0.2);color:#10B981;padding:5px 15px;border-radius:20px;font-size:.8em;margin-bottom:10px;}
 
-        h2 {
-            color: #10B981;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
+/* Contact */
+#contact {background:#1a1a1a;padding:60px 20px;border-radius:15px;text-align:center;}
+.email {color:#10B981;font-size:1.2em;word-break:break-all;}
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin: 30px 0;
-        }
+/* Footer */
+footer {text-align:center;padding:30px;color:#666;border-top:1px solid #333;}
 
-        .stat-box {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #333;
-        }
+/* Animations */
+@keyframes fadeIn {from {opacity:0;transform:translateY(20px);} to {opacity:1;transform:translateY(0);}}
 
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #10B981;
-        }
-
-        /* Projects */
-        .project-card {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #10B981;
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.2);
-            color: #10B981;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            margin-bottom: 10px;
-        }
-
-        /* Skills */
-        .skill-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .skill-item {
-            background: #1a1a1a;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #10B981;
-        }
-
-        /* Contact */
-        .contact-info {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .email {
-            color: #10B981;
-            font-size: 1.2em;
-            word-break: break-all;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #666;
-            border-top: 1px solid #333;
-        }
-
-    </style>
+/* Responsive */
+@media (max-width: 600px) {
+    header {padding:120px 10px 60px 10px;}
+    nav ul {flex-direction:column;gap:10px;background:#0a0a0a;position:absolute;top:50px;right:10px;display:none;padding:10px;border-radius:8px;}
+    nav ul.show {display:flex;}
+    .menu-toggle {display:block;}
+}
+</style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <img src="file_000000007f107246ba147243c1f7bc16.png" 
-             alt="Paschala Logo" 
-             class="profile-img">
+<!-- Nav Bar -->
+<nav>
+    <div class="logo">Paschala</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-        <h1>Azubuike Paschal Kamsiyochukwu</h1>
-        <p class="title">Computer Operator & Aspiring Developer</p>
+<!-- Header -->
+<header>
+    <img src="file_000000007f107246ba147243c1f7bc16.png" alt="Paschala Logo" class="profile-img">
+    <h1>Paschala</h1>
+    <p class="title">Computer Operator & Aspiring Developer</p>
+    <a href="#projects" class="hero-btn">View My Work</a>
+    <a href="#contact" class="hero-btn">Contact Me</a>
+    <a href="cv.pdf" download class="hero-btn">Download CV</a>
+    <a href="mailto:azubuikepaschal6@gmail.com" class="hero-btn">Order Now</a>
+</header>
 
-        <a href="mailto:azubuikepaschal6@gmail.com" class="hero-btn">Hire Me</a>
-        <a href="cv.pdf" download class="hero-btn">Download CV</a>
-    </header>
+<!-- About -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>Dedicated Computer Operator with 3 years of experience in data management, technical support, and office operations. Currently expanding skills in web development and game design.</p>
+    <div class="stats">
+        <div class="stat-box"><div class="stat-number">3</div><div>Years Experience</div></div>
+        <div class="stat-box"><div class="stat-number">6</div><div>Projects</div></div>
+        <div class="stat-box"><div class="stat-number">4</div><div>Skills Learning</div></div>
+        <div class="stat-box"><div class="stat-number">1</div><div>Game Created</div></div>
+    </div>
+</section>
 
-    <!-- About -->
-    <section>
-        <h2>About Me</h2>
-        <p>I'm a dedicated Computer Operator with 3 years of practical experience in data management, technical support, and office operations. While I'm not yet an expert, I'm committed to continuous improvement and learning.</p>
-        <br>
-        <p>Currently, I'm expanding my skill set into web development—learning HTML, CSS, JavaScript, and Python. I believe in growing step by step, and every day is an opportunity to learn something new.</p>
-        
-        <div class="stats">
-            <div class="stat-box">
-                <div class="stat-number">3</div>
-                <div>Years Experience</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">6</div>
-                <div>Projects</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">4</div>
-                <div>Skills Learning</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">1</div>
-                <div>Game Created</div>
-            </div>
-        </div>
-    </section>
+<!-- Skills -->
+<section id="skills">
+    <h2>My Skills</h2>
+    <div class="skill-list">
+        <div class="skill-item">HTML (70%)</div>
+        <div class="skill-item">CSS (60%)</div>
+        <div class="skill-item">JavaScript (40%)</div>
+        <div class="skill-item">Python (35%)</div>
+        <div class="skill-item">Computer Operations (85%)</div>
+        <div class="skill-item">Technical Support (80%)</div>
+    </div>
+</section>
 
-    <!-- Skills -->
-    <section>
-        <h2>My Skills</h2>
-        <div class="skill-list">
-            <div class="skill-item">HTML (70%)</div>
-            <div class="skill-item">CSS (60%)</div>
-            <div class="skill-item">JavaScript (40%)</div>
-            <div class="skill-item">Python (35%)</div>
-            <div class="skill-item">Computer Operations (85%)</div>
-            <div class="skill-item">Technical Support (80%)</div>
-        </div>
-    </section>
+<!-- Projects -->
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-card" style="border:2px solid #10B981;">
+        <span class="project-tag">HTML5 GAME</span>
+        <h3>Paschal Kamsiyochukwu Racing 3D</h3>
+        <p>A pseudo-3D racing game built with HTML5 Canvas and JavaScript.</p>
+        <a href="projects/paschal-racing.html" class="hero-btn">▶ Play Game</a>
+    </div>
+    <div class="project-card">
+        <span class="project-tag">Data Management</span>
+        <h3>Office Database System</h3>
+        <p>Excel-based database system for tracking inventory and employee records.</p>
+    </div>
+    <div class="project-card">
+        <span class="project-tag">Technical Support</span>
+        <h3>Hardware Maintenance Log</h3>
+        <p>Documentation system for computer repairs and diagnostics.</p>
+    </div>
+</section>
 
-    <!-- Projects -->
-    <section>
-        <h2>My Projects</h2>
-        
-        <div class="project-card" style="border: 2px solid #10B981;">
-            <span class="project-tag">HTML5 GAME</span>
-            <h3>Paschal Kamsiyochukwu Racing 3D</h3>
-            <p>A pseudo-3D racing game built with HTML5 Canvas and JavaScript. Features realistic driving physics, curved roads, enemy AI cars, speedometer, and mini-map.</p>
-            <a href="projects/paschal-racing.html" class="btn hero-btn">▶ Play Game</a>
-        </div>
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>Open to new opportunities and collaborations.</p>
+    <p class="email">azubuikepaschal6@gmail.com</p>
+    <a href="mailto:azubuikepaschal6@gmail.com" class="hero-btn">Send Email</a>
+    <a href="cv.pdf" download class="hero-btn">Download CV</a>
+    <a href="mailto:azubuikepaschal6@gmail.com" class="hero-btn">Order Now</a>
+</section>
 
-        <div class="project-card">
-            <span class="project-tag">Data Management</span>
-            <h3>Office Database System</h3>
-            <p>Excel-based database system for tracking inventory and employee records.</p>
-        </div>
+<footer>
+<p>&copy; 2026 Paschala. All Rights Reserved.</p>
+</footer>
 
-        <div class="project-card">
-            <span class="project-tag">Technical Support</span>
-            <h3>Hardware Maintenance Log</h3>
-            <p>Documentation system for computer repairs and diagnostics.</p>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section>
-        <h2>Contact Me</h2>
-        <div class="contact-info">
-            <p>I'm open to new opportunities and collaborations.</p>
-            <br>
-            <p class="email">azubuikepaschal6@gmail.com</p>
-            <br>
-            <a href="mailto:azubuikepaschal6@gmail.com" class="hero-btn">Send Email</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Azubuike Paschal Kamsiyochukwu. All Rights Reserved.</p>
-    </footer>
+<script>
+function toggleMenu(){document.getElementById('nav-links').classList.toggle('show');}
+</script>
 
 </body>
 </html>
