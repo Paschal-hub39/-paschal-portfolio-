@@ -3,235 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Paschala | Developer</title>
-
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#10B981">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:#0a0a0a;
-color:white;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+html{scroll-behavior:smooth;}
+body{background:#0a0a0a;color:white;}
 
 /* LOADER */
-
-#loader{
-position:fixed;
-width:100%;
-height:100%;
-background:#0a0a0a;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:28px;
-color:#10B981;
-z-index:9999;
-}
+#loader{position:fixed;width:100%;height:100%;background:#0a0a0a;display:flex;justify-content:center;align-items:center;font-size:28px;color:#10B981;z-index:9999;}
 
 /* NAVBAR */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(10,10,10,0.9);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 25px;
-border-bottom:1px solid #333;
-z-index:1000;
-}
-
-.logo{
-color:#10B981;
-font-weight:bold;
-font-size:22px;
-}
-
-nav ul{
-display:flex;
-gap:20px;
-list-style:none;
-}
-
-nav ul a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
+nav{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.9);display:flex;justify-content:space-between;align-items:center;padding:15px 25px;border-bottom:1px solid #333;z-index:1000;}
+.logo{color:#10B981;font-weight:bold;font-size:22px;}
+nav ul{display:flex;gap:20px;list-style:none;}
+nav ul a{color:white;text-decoration:none;font-weight:bold;}
 
 /* HERO */
-
-header{
-text-align:center;
-padding:140px 20px 80px;
-background:linear-gradient(135deg,#10B981,#059669);
-}
-
-.profile-img{
-width:140px;
-height:140px;
-border-radius:50%;
-border:4px solid white;
-margin-bottom:20px;
-}
-
-.hero-btn{
-display:inline-block;
-margin:10px;
-padding:12px 26px;
-background:#10B981;
-border-radius:30px;
-color:white;
-text-decoration:none;
-font-weight:bold;
-}
-
-.hero-btn:hover{
-background:#059669;
-}
+header{text-align:center;padding:140px 20px 80px;background:linear-gradient(135deg,#10B981,#059669);}
+.profile-img{width:140px;height:140px;border-radius:50%;border:4px solid white;margin-bottom:20px;}
+.hero-btn{display:inline-block;margin:10px;padding:12px 26px;background:#10B981;border-radius:30px;color:white;text-decoration:none;font-weight:bold;}
+.hero-btn:hover{background:#059669;}
 
 /* SECTIONS */
-
-section{
-max-width:900px;
-margin:auto;
-padding:60px 20px;
-}
-
-h2{
-color:#10B981;
-margin-bottom:20px;
-}
+section{max-width:900px;margin:auto;padding:60px 20px;}
+h2{color:#10B981;margin-bottom:20px;}
 
 /* GLASS CARD */
-
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-}
+.card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:20px;border-radius:15px;margin-bottom:20px;}
 
 /* SKILLS */
-
-.skills{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:10px;
-}
-
-.skill{
-background:#1a1a1a;
-padding:15px;
-border-radius:8px;
-border-left:4px solid #10B981;
-}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.skill{background:#1a1a1a;padding:15px;border-radius:8px;border-left:4px solid #10B981;}
 
 /* ORDER FORM */
-
-input,textarea{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:6px;
-border:none;
-}
-
-button{
-background:#10B981;
-border:none;
-padding:12px 20px;
-color:white;
-border-radius:20px;
-cursor:pointer;
-}
+input,textarea{width:100%;padding:12px;margin:10px 0;border-radius:6px;border:none;}
+button{background:#10B981;border:none;padding:12px 20px;color:white;border-radius:20px;cursor:pointer;}
 
 /* WHATSAPP FLOAT */
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-text-decoration:none;
-color:white;
-}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;color:white;}
 
 /* CHATBOT */
-
-#chatbot{
-position:fixed;
-bottom:90px;
-right:20px;
-width:220px;
-background:#1a1a1a;
-border-radius:10px;
-border:1px solid #10B981;
-font-size:14px;
-}
-
-#chat-header{
-background:#10B981;
-padding:8px;
-text-align:center;
-font-weight:bold;
-}
-
-#chat-body{
-padding:10px;
-}
+#chatbot{position:fixed;bottom:90px;right:20px;width:220px;background:#1a1a1a;border-radius:10px;border:1px solid #10B981;font-size:14px;}
+#chat-header{background:#10B981;padding:8px;text-align:center;font-weight:bold;}
+#chat-body{padding:10px;}
+#chat-body button{margin-top:8px;background:#10B981;border:none;padding:6px 10px;border-radius:6px;color:white;cursor:pointer;}
 
 /* GAME */
-
-canvas{
-background:black;
-margin-top:20px;
-}
+canvas{background:black;margin-top:20px;}
 
 /* FOOTER */
-
-footer{
-text-align:center;
-padding:30px;
-border-top:1px solid #333;
-color:#777;
-}
-
+footer{text-align:center;padding:30px;border-top:1px solid #333;color:#777;}
 </style>
 </head>
 
 <body>
-
 <div id="loader">Loading Paschala...</div>
 
 <nav>
-
 <div class="logo">Paschala</div>
-
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
@@ -239,122 +71,65 @@ color:#777;
 <li><a href="#order">Order</a></li>
 <li><a href="admin.html">Admin</a></li>
 </ul>
-
 </nav>
 
-
 <header>
-
 <img src="file_000000007f107246ba147243c1f7bc16.png" class="profile-img">
-
 <h1>Paschala</h1>
-
 <p>Web Developer • Computer Operator</p>
-
 <a href="#services" class="hero-btn">My Services</a>
-
 <a href="#order" class="hero-btn">Order Website</a>
-
 <button id="installBtn" class="hero-btn" style="display:none;">Install App</button>
-
 </header>
 
-
 <section id="about">
-
 <h2>About Me</h2>
-
 <div class="card">
-
 <p>I build modern websites and web apps for businesses and individuals.</p>
-
 <p>Visitors: <span id="visits"></span></p>
-
 </div>
-
 </section>
 
-
 <section id="skills">
-
 <h2>Skills</h2>
-
 <div class="skills">
-
 <div class="skill">HTML</div>
 <div class="skill">CSS</div>
 <div class="skill">JavaScript</div>
 <div class="skill">Technical Support</div>
 <div class="skill">Computer Operations</div>
-
 </div>
-
 </section>
-
 
 <section id="services">
-
 <h2>Services</h2>
-
-<div class="card">
-<h3>Portfolio Website</h3>
-<p>₦30,000</p>
-</div>
-
-<div class="card">
-<h3>Business Website</h3>
-<p>₦50,000</p>
-</div>
-
-<div class="card">
-<h3>Website + Game</h3>
-<p>₦70,000</p>
-</div>
-
+<div class="card"><h3>Portfolio Website</h3><p>₦30,000</p></div>
+<div class="card"><h3>Business Website</h3><p>₦50,000</p></div>
+<div class="card"><h3>Website + Game</h3><p>₦70,000</p></div>
 <button onclick="payWithPaystack()" class="hero-btn">Pay with Paystack</button>
-
 </section>
-
 
 <section id="order">
-
 <h2>Order Website</h2>
-
 <div class="card">
-
 <form onsubmit="sendOrder(); return false;">
-
 <input id="name" placeholder="Your Name" required>
-
 <textarea id="details" placeholder="What website do you want?" required></textarea>
-
 <button type="submit">Send Order</button>
-
 </form>
-
 </div>
-
 </section>
-
 
 <section id="game">
-
 <h2>Mini Game</h2>
-
 <canvas id="gameCanvas" width="300" height="200"></canvas>
-
 </section>
 
-
 <footer>
-
 © 2026 Paschala
-
 </footer>
 
-
 <a href="https://wa.me/2349161362962" class="whatsapp">💬</a>
-
 
 <div id="chatbot">
 <div id="chat-header">Paschala Bot</div>
@@ -364,120 +139,70 @@ color:#777;
 </div>
 </div>
 
-
 <script src="https://js.paystack.co/v1/inline.js"></script>
-
 <script>
+// LOADER
+window.onload = function(){document.getElementById("loader").style.display="none";};
 
-/* LOADER */
-
-window.onload = function(){
-document.getElementById("loader").style.display="none";
-};
-
-
-/* VISITOR COUNTER */
-
+// VISITOR COUNTER
 let visits = localStorage.getItem("paschala_visits");
-
-if(!visits){
-visits = 1;
-}else{
-visits++;
-}
-
+if(!visits){visits=1;}else{visits++;}
 localStorage.setItem("paschala_visits",visits);
-
 document.getElementById("visits").innerText = visits;
 
-
-/* ORDER */
-
+// ORDER
 function sendOrder(){
-
 let name = document.getElementById("name").value;
-
 let details = document.getElementById("details").value;
-
-let url = "https://wa.me/2349161362962?text=New website order from "+name+" : "+details;
-
+let url="https://wa.me/2349161362962?text=New website order from "+name+" : "+details;
 window.open(url);
-
 }
 
-
-/* PAYSTACK */
-
+// PAYSTACK
 function payWithPaystack(){
-
 let handler = PaystackPop.setup({
-
 key:'pk_test_xxxxxxxxx',
-
 email:'customer@email.com',
-
 amount:3000000,
-
 currency:"NGN",
-
-callback:function(response){
-alert("Payment Successful");
-}
-
+callback:function(response){alert("Payment Successful");}
 });
-
 handler.openIframe();
-
 }
 
-
-/* MINI GAME */
-
-let canvas = document.getElementById("gameCanvas");
-let ctx = canvas.getContext("2d");
-
-let x = 50;
-
+// MINI GAME
+let canvas=document.getElementById("gameCanvas");
+let ctx=canvas.getContext("2d");
+let x=50;
 function draw(){
-
 ctx.clearRect(0,0,300,200);
-
 ctx.fillStyle="lime";
-
 ctx.fillRect(x,80,20,20);
-
 x++;
-
 if(x>300){x=0;}
-
 requestAnimationFrame(draw);
-
 }
-
 draw();
 
-
-/* INSTALL APP */
-
+// INSTALL APP
 let deferredPrompt;
-
 window.addEventListener("beforeinstallprompt",(e)=>{
-
 e.preventDefault();
-
 deferredPrompt=e;
-
 document.getElementById("installBtn").style.display="inline-block";
-
 });
-
 document.getElementById("installBtn").addEventListener("click",()=>{
-
 deferredPrompt.prompt();
-
 });
 
+// REGISTER SERVICE WORKER
+if('serviceWorker' in navigator){
+window.addEventListener('load',()=>{
+navigator.serviceWorker.register('sw.js')
+.then(reg=>console.log('Service Worker registered:',reg.scope))
+.catch(err=>console.log('Service Worker failed:',err));
+});
+}
 </script>
-
 </body>
 </html>
