@@ -1,10 +1,12 @@
 {
-  "name": "Paschala Portfolio",
+  "name": "Paschala",
   "short_name": "Paschala",
-  "start_url": "index.html",
+  "description": "Paschala Portfolio: Web Developer, Game Creator, and Computer Operator",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#10B981",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "file_000000007f107246ba147243c1f7bc16.png",
@@ -16,5 +18,7 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "categories": ["portfolio", "education", "games"],
+  "prefer_related_applications": false
 }
