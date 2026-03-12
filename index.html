@@ -3,179 +3,480 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paschala | Portfolio</title>
 
-<!-- PWA Meta -->
-<meta name="theme-color" content="#10B981">
+<title>Paschala | Developer</title>
+
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="file_000000007f107246ba147243c1f7bc16.png" type="image/png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Paschala">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#10B981">
 
 <style>
-* {margin:0;padding:0;box-sizing:border-box;}
-html {scroll-behavior:smooth;}
-body {font-family: Arial,sans-serif;background:#0a0a0a;color:#fff;line-height:1.6;}
 
-/* Navigation */
-nav {
-    position:fixed;top:0;width:100%;background:rgba(10,10,10,0.95);display:flex;justify-content:space-between;align-items:center;padding:10px 20px;z-index:999;border-bottom:1px solid #333;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
 }
-nav .logo {color:#10B981;font-weight:bold;font-size:1.3em;}
-nav ul {list-style:none;display:flex;gap:15px;}
-nav ul li a {text-decoration:none;color:#fff;font-weight:bold;transition:.3s;}
-nav ul li a:hover {color:#10B981;}
-.menu-toggle {display:none;cursor:pointer;font-size:1.5em;color:#10B981;}
 
-/* Header */
-header {
-    background: linear-gradient(135deg,#10B981,#059669);
-    padding:140px 20px 80px 20px;text-align:center;position:relative;
+html{
+scroll-behavior:smooth;
 }
-.profile-img {width:140px;height:140px;border-radius:50%;border:4px solid #10B981;margin-bottom:20px;background:#0a0a0a;object-fit:cover;}
-h1 {font-size:2em;margin-bottom:10px;animation:fadeIn 1s ease;}
-.title {font-size:1.2em;opacity:.9;animation:fadeIn 1.5s ease;}
-.hero-btn {
-    display:inline-block;margin:10px 5px;padding:12px 28px;border-radius:25px;background:linear-gradient(135deg,#10B981,#059669);
-    color:white;text-decoration:none;font-weight:bold;transition:0.3s;
+
+body{
+background:#0a0a0a;
+color:white;
 }
-.hero-btn:hover {transform: scale(1.08);background: linear-gradient(135deg,#059669,#10B981);}
 
-/* Sections */
-section {padding:60px 20px;max-width:900px;margin:0 auto;}
-h2 {color:#10B981;margin-bottom:20px;font-size:1.8em;}
+/* LOADER */
 
-/* Stats */
-.stats {display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;margin:30px 0;}
-.stat-box {
-    background:#1a1a1a;padding:20px;border-radius:10px;text-align:center;border:1px solid #333;
-    transition: transform .3s,border-color .3s,box-shadow .3s;
+#loader{
+position:fixed;
+width:100%;
+height:100%;
+background:#0a0a0a;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+color:#10B981;
+z-index:9999;
 }
-.stat-box:hover {transform: translateY(-5px);border-color:#10B981;box-shadow:0 0 15px #10B981;}
-.stat-number {font-size:2.2em;font-weight:bold;color:#10B981;}
 
-/* Skills */
-.skill-list {display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
-.skill-item {
-    background:#1a1a1a;padding:15px;border-radius:8px;border-left:4px solid #10B981;transition:.3s, box-shadow .3s;
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(10,10,10,0.9);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+border-bottom:1px solid #333;
+z-index:1000;
 }
-.skill-item:hover {box-shadow:0 0 15px #10B981;transform:scale(1.05);}
 
-/* Projects */
-.project-card {
-    background:#1a1a1a;border:1px solid #333;border-radius:15px;padding:25px;margin-bottom:20px;
-    transition: transform .3s,border-color .3s,box-shadow .3s;
+.logo{
+color:#10B981;
+font-weight:bold;
+font-size:22px;
 }
-.project-card:hover {transform:translateY(-5px);border-color:#10B981;box-shadow:0 0 20px #10B981;}
-.project-tag {display:inline-block;background:rgba(16,185,129,0.2);color:#10B981;padding:5px 15px;border-radius:20px;font-size:.8em;margin-bottom:10px;}
 
-/* Contact */
-#contact {background:#1a1a1a;padding:60px 20px;border-radius:15px;text-align:center;}
-.email {color:#10B981;font-size:1.2em;word-break:break-all;}
-
-/* Footer */
-footer {text-align:center;padding:30px;color:#666;border-top:1px solid #333;}
-
-/* Animations */
-@keyframes fadeIn {from {opacity:0;transform:translateY(20px);} to {opacity:1;transform:translateY(0);}}
-
-/* Responsive */
-@media (max-width: 600px) {
-    header {padding:120px 10px 60px 10px;}
-    nav ul {flex-direction:column;gap:10px;background:#0a0a0a;position:absolute;top:50px;right:10px;display:none;padding:10px;border-radius:8px;}
-    nav ul.show {display:flex;}
-    .menu-toggle {display:block;}
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
 }
+
+nav ul a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* HERO */
+
+header{
+text-align:center;
+padding:140px 20px 80px;
+background:linear-gradient(135deg,#10B981,#059669);
+}
+
+.profile-img{
+width:140px;
+height:140px;
+border-radius:50%;
+border:4px solid white;
+margin-bottom:20px;
+}
+
+.hero-btn{
+display:inline-block;
+margin:10px;
+padding:12px 26px;
+background:#10B981;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero-btn:hover{
+background:#059669;
+}
+
+/* SECTIONS */
+
+section{
+max-width:900px;
+margin:auto;
+padding:60px 20px;
+}
+
+h2{
+color:#10B981;
+margin-bottom:20px;
+}
+
+/* GLASS CARD */
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+/* SKILLS */
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:10px;
+}
+
+.skill{
+background:#1a1a1a;
+padding:15px;
+border-radius:8px;
+border-left:4px solid #10B981;
+}
+
+/* ORDER FORM */
+
+input,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:none;
+}
+
+button{
+background:#10B981;
+border:none;
+padding:12px 20px;
+color:white;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* WHATSAPP FLOAT */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+color:white;
+}
+
+/* CHATBOT */
+
+#chatbot{
+position:fixed;
+bottom:90px;
+right:20px;
+width:220px;
+background:#1a1a1a;
+border-radius:10px;
+border:1px solid #10B981;
+font-size:14px;
+}
+
+#chat-header{
+background:#10B981;
+padding:8px;
+text-align:center;
+font-weight:bold;
+}
+
+#chat-body{
+padding:10px;
+}
+
+/* GAME */
+
+canvas{
+background:black;
+margin-top:20px;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid #333;
+color:#777;
+}
+
 </style>
 </head>
+
 <body>
 
-<!-- Nav Bar -->
+<div id="loader">Loading Paschala...</div>
+
 <nav>
-    <div class="logo">Paschala</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+
+<div class="logo">Paschala</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#order">Order</a></li>
+<li><a href="admin.html">Admin</a></li>
+</ul>
+
 </nav>
 
-<!-- Header -->
+
 <header>
-    <img src="file_000000007f107246ba147243c1f7bc16.png" alt="Paschala Logo" class="profile-img">
-    <h1>Paschala</h1>
-    <p class="title">Computer Operator & Aspiring Developer</p>
-    <a href="#projects" class="hero-btn">View My Work</a>
-    <a href="#contact" class="hero-btn">Contact Me</a>
-    <a href="cv.pdf" download class="hero-btn">Download CV</a>
-    <a href="mailto:azubuikepaschal6@gmail.com" class="hero-btn">Order Now</a>
+
+<img src="file_000000007f107246ba147243c1f7bc16.png" class="profile-img">
+
+<h1>Paschala</h1>
+
+<p>Web Developer • Computer Operator</p>
+
+<a href="#services" class="hero-btn">My Services</a>
+
+<a href="#order" class="hero-btn">Order Website</a>
+
+<button id="installBtn" class="hero-btn" style="display:none;">Install App</button>
+
 </header>
 
-<!-- About -->
+
 <section id="about">
-    <h2>About Me</h2>
-    <p>Dedicated Computer Operator with 3 years of experience in data management, technical support, and office operations. Currently expanding skills in web development and game design.</p>
-    <div class="stats">
-        <div class="stat-box"><div class="stat-number">3</div><div>Years Experience</div></div>
-        <div class="stat-box"><div class="stat-number">6</div><div>Projects</div></div>
-        <div class="stat-box"><div class="stat-number">4</div><div>Skills Learning</div></div>
-        <div class="stat-box"><div class="stat-number">1</div><div>Game Created</div></div>
-    </div>
+
+<h2>About Me</h2>
+
+<div class="card">
+
+<p>I build modern websites and web apps for businesses and individuals.</p>
+
+<p>Visitors: <span id="visits"></span></p>
+
+</div>
+
 </section>
 
-<!-- Skills -->
+
 <section id="skills">
-    <h2>My Skills</h2>
-    <div class="skill-list">
-        <div class="skill-item">HTML (70%)</div>
-        <div class="skill-item">CSS (60%)</div>
-        <div class="skill-item">JavaScript (40%)</div>
-        <div class="skill-item">Python (35%)</div>
-        <div class="skill-item">Computer Operations (85%)</div>
-        <div class="skill-item">Technical Support (80%)</div>
-    </div>
+
+<h2>Skills</h2>
+
+<div class="skills">
+
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+<div class="skill">Technical Support</div>
+<div class="skill">Computer Operations</div>
+
+</div>
+
 </section>
 
-<!-- Projects -->
-<section id="projects">
-    <h2>My Projects</h2>
-    <div class="project-card" style="border:2px solid #10B981;">
-        <span class="project-tag">HTML5 GAME</span>
-        <h3>Paschal Kamsiyochukwu Racing 3D</h3>
-        <p>A pseudo-3D racing game built with HTML5 Canvas and JavaScript.</p>
-        <a href="projects/paschal-racing.html" class="hero-btn">▶ Play Game</a>
-    </div>
-    <div class="project-card">
-        <span class="project-tag">Data Management</span>
-        <h3>Office Database System</h3>
-        <p>Excel-based database system for tracking inventory and employee records.</p>
-    </div>
-    <div class="project-card">
-        <span class="project-tag">Technical Support</span>
-        <h3>Hardware Maintenance Log</h3>
-        <p>Documentation system for computer repairs and diagnostics.</p>
-    </div>
+
+<section id="services">
+
+<h2>Services</h2>
+
+<div class="card">
+<h3>Portfolio Website</h3>
+<p>₦30,000</p>
+</div>
+
+<div class="card">
+<h3>Business Website</h3>
+<p>₦50,000</p>
+</div>
+
+<div class="card">
+<h3>Website + Game</h3>
+<p>₦70,000</p>
+</div>
+
+<button onclick="payWithPaystack()" class="hero-btn">Pay with Paystack</button>
+
 </section>
 
-<!-- Contact -->
-<section id="contact">
-    <h2>Contact Me</h2>
-    <p>Open to new opportunities and collaborations.</p>
-    <p class="email">azubuikepaschal6@gmail.com</p>
-    <a href="mailto:azubuikepaschal6@gmail.com" class="hero-btn">Send Email</a>
-    <a href="cv.pdf" download class="hero-btn">Download CV</a>
-    <a href="mailto:azubuikepaschal6@gmail.com" class="hero-btn">Order Now</a>
+
+<section id="order">
+
+<h2>Order Website</h2>
+
+<div class="card">
+
+<form onsubmit="sendOrder(); return false;">
+
+<input id="name" placeholder="Your Name" required>
+
+<textarea id="details" placeholder="What website do you want?" required></textarea>
+
+<button type="submit">Send Order</button>
+
+</form>
+
+</div>
+
 </section>
+
+
+<section id="game">
+
+<h2>Mini Game</h2>
+
+<canvas id="gameCanvas" width="300" height="200"></canvas>
+
+</section>
+
 
 <footer>
-<p>&copy; 2026 Paschala. All Rights Reserved.</p>
+
+© 2026 Paschala
+
 </footer>
 
+
+<a href="https://wa.me/2349161362962" class="whatsapp">💬</a>
+
+
+<div id="chatbot">
+<div id="chat-header">Paschala Bot</div>
+<div id="chat-body">
+<p>Hello 👋 Need a website?</p>
+<button onclick="window.open('https://wa.me/2349161362962')">Chat</button>
+</div>
+</div>
+
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
 <script>
-function toggleMenu(){document.getElementById('nav-links').classList.toggle('show');}
+
+/* LOADER */
+
+window.onload = function(){
+document.getElementById("loader").style.display="none";
+};
+
+
+/* VISITOR COUNTER */
+
+let visits = localStorage.getItem("paschala_visits");
+
+if(!visits){
+visits = 1;
+}else{
+visits++;
+}
+
+localStorage.setItem("paschala_visits",visits);
+
+document.getElementById("visits").innerText = visits;
+
+
+/* ORDER */
+
+function sendOrder(){
+
+let name = document.getElementById("name").value;
+
+let details = document.getElementById("details").value;
+
+let url = "https://wa.me/2349161362962?text=New website order from "+name+" : "+details;
+
+window.open(url);
+
+}
+
+
+/* PAYSTACK */
+
+function payWithPaystack(){
+
+let handler = PaystackPop.setup({
+
+key:'pk_test_xxxxxxxxx',
+
+email:'customer@email.com',
+
+amount:3000000,
+
+currency:"NGN",
+
+callback:function(response){
+alert("Payment Successful");
+}
+
+});
+
+handler.openIframe();
+
+}
+
+
+/* MINI GAME */
+
+let canvas = document.getElementById("gameCanvas");
+let ctx = canvas.getContext("2d");
+
+let x = 50;
+
+function draw(){
+
+ctx.clearRect(0,0,300,200);
+
+ctx.fillStyle="lime";
+
+ctx.fillRect(x,80,20,20);
+
+x++;
+
+if(x>300){x=0;}
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
+
+
+/* INSTALL APP */
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt",(e)=>{
+
+e.preventDefault();
+
+deferredPrompt=e;
+
+document.getElementById("installBtn").style.display="inline-block";
+
+});
+
+document.getElementById("installBtn").addEventListener("click",()=>{
+
+deferredPrompt.prompt();
+
+});
+
 </script>
 
 </body>
