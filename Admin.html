@@ -1,132 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paschala Admin</title>
-
+<title>Paschala Admin Dashboard</title>
 <style>
-body{
-font-family:Arial;
-background:#0a0a0a;
-color:white;
-text-align:center;
-padding:40px;
-}
-
-.login-box{
-background:#1a1a1a;
-padding:30px;
-border-radius:10px;
-max-width:300px;
-margin:auto;
-border:1px solid #333;
-}
-
-input{
-padding:10px;
-width:90%;
-margin:10px 0;
-border-radius:6px;
-border:none;
-}
-
-button{
-background:#10B981;
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:20px;
-cursor:pointer;
-}
-
-.dashboard{
-display:none;
-}
-
-.card{
-background:#1a1a1a;
-padding:20px;
-border-radius:10px;
-margin:15px auto;
-max-width:400px;
-border:1px solid #333;
-}
-
-.stat{
-font-size:30px;
-color:#10B981;
-}
+body{background:#0a0a0a;color:white;font-family:Arial;text-align:center;}
+input{padding:10px;margin:5px;border-radius:6px;border:none;width:80%;}
+button{padding:10px;margin:5px;border-radius:6px;background:#10B981;color:white;border:none;cursor:pointer;}
+.card{background:#111;padding:15px;margin:15px;border-radius:10px;}
 </style>
 </head>
-
 <body>
 
-<div class="login-box" id="login">
-<h2>Admin Login</h2>
-<input type="password" id="password" placeholder="Enter Password">
-<br>
-<button onclick="login()">Login</button>
-</div>
-
-<div class="dashboard" id="dashboard">
-
-<h1>Paschala Dashboard</h1>
+<h1>Paschala Admin Dashboard (Offline)</h1>
 
 <div class="card">
-<h3>Total Visitors</h3>
-<div class="stat" id="visits"></div>
-</div>
-
-<div class="card">
-<button onclick="resetVisits()">Reset Visitors</button>
-</div>
-
+<h3>Offline Order Log</h3>
+<input id="newOrder" placeholder="Add new order">
+<button onclick="addOrder()">Add</button>
+<div id="orders"></div>
 </div>
 
 <script>
-
-let adminPassword = "paschala123";
-
-function login(){
-
-let input = document.getElementById("password").value;
-
-if(input === adminPassword){
-
-document.getElementById("login").style.display="none";
-document.getElementById("dashboard").style.display="block";
-
-loadStats();
-
-}else{
-
-alert("Wrong Password");
-
+let orders=[];
+function addOrder(){
+let val=document.getElementById("newOrder").value;
+if(val!=""){orders.push(val); display(); document.getElementById("newOrder").value="";}
 }
-
+function display(){
+document.getElementById("orders").innerHTML=orders.join("<br>");
 }
-
-function loadStats(){
-
-let visits = localStorage.getItem("paschala_visits");
-
-if(!visits){
-visits = 0;
-}
-
-document.getElementById("visits").innerText = visits;
-
-}
-
-function resetVisits(){
-
-localStorage.setItem("paschala_visits",0);
-
-loadStats();
-
-}
-
 </script>
 
 </body>
