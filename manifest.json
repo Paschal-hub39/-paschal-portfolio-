@@ -1,24 +1,39 @@
 {
-  "name": "Paschala",
+  "name": "Paschala Portfolio",
   "short_name": "Paschala",
   "description": "Paschala Portfolio: Web Developer, Game Creator, and Computer Operator",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#10B981",
   "orientation": "portrait",
+  "id": "/",
+  "related_applications": [],
   "icons": [
     {
       "src": "file_000000007f107246ba147243c1f7bc16.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "file_000000007f107246ba147243c1f7bc16.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "categories": ["portfolio", "education", "games"],
-  "prefer_related_applications": false
+  "screenshots": [
+    {
+      "src": "Screenshot_20260312-131235.png",
+      "sizes": "540x720",
+      "type": "image/png"
+    },
+    {
+      "src": "Screenshot_20260312-131220.png",
+      "sizes": "540x720",
+      "type": "image/png"
+    }
+  ]
 }
