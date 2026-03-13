@@ -3,206 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paschala | Developer</title>
+<title>Paschala | God Mode Offline</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#10B981">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-html{scroll-behavior:smooth;}
-body{background:#0a0a0a;color:white;}
-
-/* LOADER */
-#loader{position:fixed;width:100%;height:100%;background:#0a0a0a;display:flex;justify-content:center;align-items:center;font-size:28px;color:#10B981;z-index:9999;}
-
-/* NAVBAR */
-nav{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.9);display:flex;justify-content:space-between;align-items:center;padding:15px 25px;border-bottom:1px solid #333;z-index:1000;}
-.logo{color:#10B981;font-weight:bold;font-size:22px;}
-nav ul{display:flex;gap:20px;list-style:none;}
-nav ul a{color:white;text-decoration:none;font-weight:bold;}
-
-/* HERO */
-header{text-align:center;padding:140px 20px 80px;background:linear-gradient(135deg,#10B981,#059669);}
-.profile-img{width:140px;height:140px;border-radius:50%;border:4px solid white;margin-bottom:20px;}
-.hero-btn{display:inline-block;margin:10px;padding:12px 26px;background:#10B981;border-radius:30px;color:white;text-decoration:none;font-weight:bold;}
-.hero-btn:hover{background:#059669;}
-
-/* SECTIONS */
-section{max-width:900px;margin:auto;padding:60px 20px;}
-h2{color:#10B981;margin-bottom:20px;}
-
-/* GLASS CARD */
-.card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:20px;border-radius:15px;margin-bottom:20px;}
-
-/* SKILLS */
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
-.skill{background:#1a1a1a;padding:15px;border-radius:8px;border-left:4px solid #10B981;}
-
-/* ORDER FORM */
-input,textarea{width:100%;padding:12px;margin:10px 0;border-radius:6px;border:none;}
-button{background:#10B981;border:none;padding:12px 20px;color:white;border-radius:20px;cursor:pointer;}
-
-/* WHATSAPP FLOAT */
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;color:white;}
-
-/* CHATBOT */
-#chatbot{position:fixed;bottom:90px;right:20px;width:220px;background:#1a1a1a;border-radius:10px;border:1px solid #10B981;font-size:14px;}
-#chat-header{background:#10B981;padding:8px;text-align:center;font-weight:bold;}
-#chat-body{padding:10px;}
-#chat-body button{margin-top:8px;background:#10B981;border:none;padding:6px 10px;border-radius:6px;color:white;cursor:pointer;}
-
-/* GAME */
-canvas{background:black;margin-top:20px;}
-
-/* FOOTER */
-footer{text-align:center;padding:30px;border-top:1px solid #333;color:#777;}
+body{
+  font-family:Arial, sans-serif;
+  margin:0;
+  background:#0a0a0a;
+  color:white;
+  line-height:1.5;
+}
+nav{
+  background:#111;
+  padding:15px;
+  font-size:24px;
+  color:#10B981;
+  text-align:center;
+}
+section{
+  padding:40px 20px;
+  max-width:900px;
+  margin:0 auto;
+}
+h1,h2,h3{
+  color:#10B981;
+}
+button{
+  padding:12px 25px;
+  margin:8px;
+  border:none;
+  border-radius:25px;
+  background:#10B981;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+}
+button:hover{background:#059669;}
+input{
+  padding:10px;
+  margin:6px;
+  width:80%;
+  border-radius:6px;
+  border:none;
+}
+.card{
+  background:#111;
+  padding:20px;
+  margin:15px 0;
+  border-radius:12px;
+  border:1px solid #333;
+  transition:0.3s;
+}
+.card:hover{border-color:#10B981;transform:translateY(-5px);}
+#chatbot{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#111;
+  padding:15px;
+  border-radius:12px;
+  width:240px;
+  z-index:999;
+  text-align:center;
+}
+#chatbot p{margin-bottom:10px;}
+footer{
+  text-align:center;
+  padding:20px;
+  border-top:1px solid #333;
+  color:#aaa;
+}
 </style>
 </head>
-
 <body>
-<div id="loader">Loading Paschala...</div>
 
-<nav>
-<div class="logo">Paschala</div>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#order">Order</a></li>
-<li><a href="admin.html">Admin</a></li>
-</ul>
-</nav>
+<nav>PASCHALA</nav>
 
-<header>
-<img src="file_000000007f107246ba147243c1f7bc16.png" class="profile-img">
-<h1>Paschala</h1>
-<p>Web Developer • Computer Operator</p>
-<a href="#services" class="hero-btn">My Services</a>
-<a href="#order" class="hero-btn">Order Website</a>
-<button id="installBtn" class="hero-btn" style="display:none;">Install App</button>
-</header>
-
-<section id="about">
-<h2>About Me</h2>
-<div class="card">
-<p>I build modern websites and web apps for businesses and individuals.</p>
-<p>Visitors: <span id="visits"></span></p>
-</div>
-</section>
-
-<section id="skills">
-<h2>Skills</h2>
-<div class="skills">
-<div class="skill">HTML</div>
-<div class="skill">CSS</div>
-<div class="skill">JavaScript</div>
-<div class="skill">Technical Support</div>
-<div class="skill">Computer Operations</div>
-</div>
+<section>
+<h1>Paschal Azubuike</h1>
+<p>Web Developer • Game Creator • Tech Operator</p>
+<button onclick="contact()">Contact Me</button>
+<button onclick="document.getElementById('signup').scrollIntoView()">Client Sign Up</button>
+<button onclick="document.getElementById('services').scrollIntoView()">Services</button>
+<button onclick="document.getElementById('payments').scrollIntoView()">Payments</button>
+<button onclick="document.getElementById('admin').scrollIntoView()">Admin Dashboard</button>
 </section>
 
 <section id="services">
 <h2>Services</h2>
-<div class="card"><h3>Portfolio Website</h3><p>₦30,000</p></div>
-<div class="card"><h3>Business Website</h3><p>₦50,000</p></div>
-<div class="card"><h3>Website + Game</h3><p>₦70,000</p></div>
-<button onclick="payWithPaystack()" class="hero-btn">Pay with Paystack</button>
-</section>
 
-<section id="order">
-<h2>Order Website</h2>
 <div class="card">
-<form onsubmit="sendOrder(); return false;">
-<input id="name" placeholder="Your Name" required>
-<textarea id="details" placeholder="What website do you want?" required></textarea>
-<button type="submit">Send Order</button>
-</form>
+<h3>Portfolio Website</h3>
+<p>₦30,000</p>
+<button onclick="order('Portfolio Website')">Order</button>
+</div>
+
+<div class="card">
+<h3>Business Website</h3>
+<p>₦50,000</p>
+<button onclick="order('Business Website')">Order</button>
+</div>
+
+<div class="card">
+<h3>Game Website</h3>
+<p>₦70,000</p>
+<button onclick="order('Game Website')">Order</button>
 </div>
 </section>
 
-<section id="game">
-<h2>Mini Game</h2>
-<canvas id="gameCanvas" width="300" height="200"></canvas>
+<section id="payments">
+<h2>Payments</h2>
+
+<div class="card">
+<h3>OPay</h3>
+<p>Account Name: Azubuike Paschal Kamsiyochukwu</p>
+<p>Account Number: 9161362962</p>
+<button onclick="copyAcct()">Copy Account</button>
+</div>
+
+<div class="card">
+<h3>PalmPay</h3>
+<p>Account Name: Azubuike Paschal Kamsiyochukwu</p>
+<p>Account Number: 9161362962</p>
+<button onclick="copyAcct()">Copy Account</button>
+</div>
+</section>
+
+<section id="signup">
+<h2>Client Sign Up</h2>
+<input id="name" placeholder="Name"><br>
+<input id="email" placeholder="Email"><br>
+<input id="password" placeholder="Password"><br>
+<button onclick="signup()">Create Account</button>
+</section>
+
+<section id="admin">
+<h2>Admin Dashboard</h2>
+<p>Offline order log:</p>
+<input id="newOrder" placeholder="Add new order">
+<button onclick="addOrder()">Add</button>
+<div id="orders"></div>
+</section>
+
+<section>
+<h2>Connect With Me</h2>
+<button onclick="window.open('https://wa.me/2349161362962?text=Hello Paschala I need a website')">WhatsApp</button>
+<button onclick="window.open('mailto:azubuikepaschal6@gmail.com')">Gmail</button>
+<button onclick="window.open('https://tiktok.com/@paschalkamsi')">TikTok</button>
+<button onclick="window.open('https://snapchat.com/add/paschalkamsi')">Snapchat</button>
 </section>
 
 <footer>
-© 2026 Paschala
+<p>© 2026 Paschala</p>
 </footer>
 
-<a href="https://wa.me/2349161362962" class="whatsapp">💬</a>
-
 <div id="chatbot">
-<div id="chat-header">Paschala Bot</div>
-<div id="chat-body">
-<p>Hello 👋 Need a website?</p>
-<button onclick="window.open('https://wa.me/2349161362962')">Chat</button>
-</div>
+<p id="botText">Hey 👋 I'm Paschala Bot 🤖<br>Need a website or just checking my boss out? 😎</p>
+<button onclick="chat('website')">Need Website</button>
+<button onclick="chat('price')">Price?</button>
+<button onclick="chat('hello')">Hello</button>
 </div>
 
-<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-// LOADER
-window.onload = function(){document.getElementById("loader").style.display="none";};
-
-// VISITOR COUNTER
-let visits = localStorage.getItem("paschala_visits");
-if(!visits){visits=1;}else{visits++;}
-localStorage.setItem("paschala_visits",visits);
-document.getElementById("visits").innerText = visits;
-
-// ORDER
-function sendOrder(){
-let name = document.getElementById("name").value;
-let details = document.getElementById("details").value;
-let url="https://wa.me/2349161362962?text=New website order from "+name+" : "+details;
-window.open(url);
+// Contact
+function contact(){
+let choice=prompt("Contact Paschala\n1 WhatsApp\n2 Gmail");
+if(choice==1) window.open("https://wa.me/2349161362962?text=Hello Paschala I need a website");
+else window.open("mailto:azubuikepaschal6@gmail.com");
 }
 
-// PAYSTACK
-function payWithPaystack(){
-let handler = PaystackPop.setup({
-key:'pk_test_xxxxxxxxx',
-email:'customer@email.com',
-amount:3000000,
-currency:"NGN",
-callback:function(response){alert("Payment Successful");}
-});
-handler.openIframe();
+// Order buttons
+function order(service){
+alert("Order clicked: "+service+"\nSend order via WhatsApp");
+window.open("https://wa.me/2349161362962?text=Hello Paschala I want "+service);
 }
 
-// MINI GAME
-let canvas=document.getElementById("gameCanvas");
-let ctx=canvas.getContext("2d");
-let x=50;
-function draw(){
-ctx.clearRect(0,0,300,200);
-ctx.fillStyle="lime";
-ctx.fillRect(x,80,20,20);
-x++;
-if(x>300){x=0;}
-requestAnimationFrame(draw);
+// Payments
+function copyAcct(){
+navigator.clipboard.writeText("9161362962");
+alert("Account number copied ✔");
 }
-draw();
 
-// INSTALL APP
-let deferredPrompt;
-window.addEventListener("beforeinstallprompt",(e)=>{
-e.preventDefault();
-deferredPrompt=e;
-document.getElementById("installBtn").style.display="inline-block";
-});
-document.getElementById("installBtn").addEventListener("click",()=>{
-deferredPrompt.prompt();
-});
+// Client signup demo
+function signup(){
+let name=document.getElementById("name").value;
+alert("Welcome "+name+" 🎉 (Offline demo account created)");
+}
 
-// REGISTER SERVICE WORKER
-if('serviceWorker' in navigator){
-window.addEventListener('load',()=>{
-navigator.serviceWorker.register('sw.js')
-.then(reg=>console.log('Service Worker registered:',reg.scope))
-.catch(err=>console.log('Service Worker failed:',err));
-});
+// Admin offline orders
+let orders=[];
+function addOrder(){
+let val=document.getElementById("newOrder").value;
+if(val!=""){orders.push(val); displayOrders(); document.getElementById("newOrder").value="";}
+}
+function displayOrders(){
+document.getElementById("orders").innerHTML=orders.join("<br>");
+}
+
+// Chatbot
+function chat(type){
+let bot=document.getElementById("botText");
+if(type=="website"){
+bot.innerHTML="Nice 😎 My boss Paschala builds great websites. Check WhatsApp!";
+window.open("https://wa.me/2349161362962");
+}
+else if(type=="price"){
+bot.innerHTML="Websites start from ₦30,000 depending on the project.";
+}
+else{
+bot.innerHTML="Hello there 😂 Glad you stopped by!";
+}
 }
 </script>
+
 </body>
 </html>
