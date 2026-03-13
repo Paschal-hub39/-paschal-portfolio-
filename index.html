@@ -19,10 +19,10 @@ section {padding:80px 20px; max-width:1100px; margin:auto;}
 .hero p { max-width:600px; margin-top:15px; animation:fadeIn 3s ease;}
 .btn { background:#10B981; padding:12px 25px; border-radius:20px; display:inline-block; margin-top:20px; transition:0.3s;}
 .btn:hover { background:#059669; }
-.services, .projects, .gaming, .gallery, .testimonials, .skills, .funfacts, .client-logos { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:30px;}
-.card, .project, .game-card, .skill-card, .testimonial-card, .order-card, .funfact-card, .client-card { background:#020617; padding:20px; border-radius:10px; transition:0.3s; border:1px solid #333;}
-.card:hover, .project:hover, .game-card:hover, .skill-card:hover, .testimonial-card:hover, .order-card:hover { transform:translateY(-5px); border-color:#10B981; }
-.card h3, .project h3, .game-card h3, .skill-card h3, .testimonial-card h3, .order-card h3, .funfact-card h3 { margin-bottom:10px;}
+.services, .projects, .gaming, .gallery, .testimonials, .skills, .funfacts, .client-logos, .videos { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:30px;}
+.card, .project, .game-card, .skill-card, .testimonial-card, .order-card, .funfact-card, .client-card, .video-card { background:#020617; padding:20px; border-radius:10px; transition:0.3s; border:1px solid #333;}
+.card:hover, .project:hover, .game-card:hover, .skill-card:hover, .testimonial-card:hover, .order-card:hover, .video-card:hover { transform:translateY(-5px); border-color:#10B981; }
+.card h3, .project h3, .game-card h3, .skill-card h3, .testimonial-card h3, .order-card h3, .funfact-card h3, .video-card h3 { margin-bottom:10px;}
 .gallery img { width:100%; border-radius:10px; cursor:pointer; }
 .lightbox { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); display:none; justify-content:center; align-items:center; z-index:1001;}
 .lightbox img { max-width:90%; max-height:90%; }
@@ -31,6 +31,7 @@ input, textarea, select { width:100%; padding:10px; margin:5px 0 15px 0; border-
 form { display:flex; flex-direction:column; }
 @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
 .counter { font-size:2em; font-weight:bold; color:#10B981; }
+.video-card video { border-radius:10px; }
 </style>
 </head>
 
@@ -45,6 +46,7 @@ form { display:flex; flex-direction:column; }
 <a href="#projects">Projects</a>
 <a href="#gaming">Gaming</a>
 <a href="#screenshots">Screenshots</a>
+<a href="#videos">Videos</a>
 <a href="#skills">Skills</a>
 <a href="#funfacts">Fun Facts</a>
 <a href="#testimonials">Testimonials</a>
@@ -95,25 +97,36 @@ form { display:flex; flex-direction:column; }
 <section id="gaming">
 <h2>Gaming</h2>
 <div class="gaming">
-<div class="game-card"><img src="images/codm.jpg"><h3>Call Of Duty Mobile</h3><p>Competitive mobile FPS battles.</p></div>
-<div class="game-card"><img src="images/efootball.jpg"><h3>eFootball</h3><p>Football simulation matches.</p></div>
-<div class="game-card"><img src="images/codm2.jpg"><h3>CODM Ranked</h3><p>Top tier gameplay highlights.</p></div>
-<div class="game-card"><img src="images/efootball2.jpg"><h3>eFootball Stats</h3><p>My best matches and goals.</p></div>
-<div class="game-card"><img src="images/gaming4.jpg"><h3>Mini Arcade Game</h3><p>Custom HTML5 arcade games.</p></div>
-<div class="game-card"><img src="images/gaming5.jpg"><h3>Strategy Game Highlights</h3><p>My highest scores and achievements.</p></div>
+<div class="game-card"><img src="assets/images/codm.jpg"><h3>Call Of Duty Mobile</h3><p>Competitive mobile FPS battles.</p></div>
+<div class="game-card"><img src="assets/images/efootball.jpg"><h3>eFootball</h3><p>Football simulation matches.</p></div>
+<div class="game-card"><img src="assets/images/codm2.jpg"><h3>CODM Ranked</h3><p>Top tier gameplay highlights.</p></div>
+<div class="game-card"><img src="assets/images/efootball2.jpg"><h3>eFootball Stats</h3><p>My best matches and goals.</p></div>
+<div class="game-card"><img src="assets/images/gaming4.jpg"><h3>Mini Arcade Game</h3><p>Custom HTML5 arcade games.</p></div>
+<div class="game-card"><img src="assets/images/gaming5.jpg"><h3>Strategy Game Highlights</h3><p>My highest scores and achievements.</p></div>
 </div>
 </section>
 
 <section id="screenshots">
 <h2>Screenshots</h2>
 <div class="gallery">
-<img src="images/Screenshot_20260225-232006.png">
-<img src="images/Screenshot_20260227-201004.png">
-<img src="images/Screenshot_20260227-131620.png">
-<img src="images/Screenshot_20260307-063303.png">
-<img src="images/Screenshot_20260307-105701.png">
-<img src="images/Screenshot_20260221-092056.png">
-<img src="images/Screenshot_20260221-084519.png">
+<img src="assets/images/Screenshot_20260208-155631.png">
+<img src="assets/images/Screenshot_20260210-062650.png">
+<img src="assets/images/Screenshot_20260208-155407.png">
+<img src="assets/images/Screenshot_20260208-151621.png">
+<img src="assets/images/Screenshot_20260216-215046.png">
+<img src="assets/images/Screenshot_20260213-204621.png">
+<img src="assets/images/Screenshot_20260214-223059.png">
+<img src="assets/images/Screenshot_20260216-191934.png">
+<img src="assets/images/Screenshot_20260219-233008.png">
+</div>
+</section>
+
+<section id="videos">
+<h2>Videos</h2>
+<div class="videos">
+<div class="video-card"><video controls width="100%"><source src="assets/videos/lv_7597217801748663560_20260220024121.mp4" type="video/mp4"></video><h3>CODM Gameplay 1</h3></div>
+<div class="video-card"><video controls width="100%"><source src="assets/videos/lv_7553461464594386229_20260220025604.mp4" type="video/mp4"></video><h3>CODM Gameplay 2</h3></div>
+<div class="video-card"><video controls width="100%"><source src="assets/videos/20260219234450.mp4" type="video/mp4"></video><h3>eFootball Demo</h3></div>
 </div>
 </section>
 
@@ -153,7 +166,6 @@ form { display:flex; flex-direction:column; }
 </div>
 </section>
 
-<!-- ORDER FORM -->
 <section id="order">
 <h2>Place an Order</h2>
 <div class="order-card">
@@ -205,7 +217,6 @@ const lightboxImg=document.getElementById("lightbox-img");
 images.forEach(img=>{ img.addEventListener("click",()=>{ lightbox.style.display="flex"; lightboxImg.src=img.src; }); });
 lightbox.addEventListener("click",()=>{ lightbox.style.display="none"; });
 
-// ORDER FORM FUNCTION
 function sendOrder(method){
 const name=document.getElementById("name").value;
 const email=document.getElementById("email").value;
@@ -217,7 +228,6 @@ else if(method==='email'){ window.open(`mailto:azubuikepaschal6@gmail.com?subjec
 else if(method==='snapchat'){ alert("Snapchat messages are not directly sendable from browser. Username: PaschalKamsi"); }
 }
 
-// COUNTER ANIMATION
 const counters=document.querySelectorAll('.counter');
 counters.forEach(counter=>{
 counter.innerText='0';
