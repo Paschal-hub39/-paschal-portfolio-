@@ -3,219 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paschala | God Mode Offline</title>
+<title>Paschala | Offline Portfolio</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#10B981">
 <style>
-body{
-  font-family:Arial, sans-serif;
-  margin:0;
-  background:#0a0a0a;
-  color:white;
-  line-height:1.5;
-}
-nav{
-  background:#111;
-  padding:15px;
-  font-size:24px;
-  color:#10B981;
-  text-align:center;
-}
-section{
-  padding:40px 20px;
-  max-width:900px;
-  margin:0 auto;
-}
-h1,h2,h3{
-  color:#10B981;
-}
-button{
-  padding:12px 25px;
-  margin:8px;
-  border:none;
-  border-radius:25px;
-  background:#10B981;
-  color:white;
-  cursor:pointer;
-  font-weight:bold;
-  transition:0.3s;
-}
-button:hover{background:#059669;}
-input{
-  padding:10px;
-  margin:6px;
-  width:80%;
-  border-radius:6px;
-  border:none;
-}
-.card{
-  background:#111;
-  padding:20px;
-  margin:15px 0;
-  border-radius:12px;
-  border:1px solid #333;
-  transition:0.3s;
-}
-.card:hover{border-color:#10B981;transform:translateY(-5px);}
-#chatbot{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#111;
-  padding:15px;
-  border-radius:12px;
-  width:240px;
-  z-index:999;
-  text-align:center;
-}
-#chatbot p{margin-bottom:10px;}
-footer{
-  text-align:center;
-  padding:20px;
-  border-top:1px solid #333;
-  color:#aaa;
-}
+body { font-family: Arial,sans-serif; margin:0; padding:0; background:#0a0a0a; color:#fff; }
+header { background:#10B981; padding:50px 20px; text-align:center; }
+header img { width:150px; height:150px; border-radius:50%; border:4px solid #fff; margin-bottom:20px; }
+h1,h2,h3 { color:#10B981; }
+p { line-height:1.6; }
+.btn { display:inline-block; padding:12px 25px; background:#059669; color:#fff; border-radius:25px; text-decoration:none; margin:10px; cursor:pointer; }
+.btn:hover { background:#047c5a; }
+section { padding:40px 20px; max-width:900px; margin:0 auto; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px; margin-top:30px; }
+.stat-box { background:#1a1a1a; padding:20px; border-radius:10px; text-align:center; border:1px solid #333; }
+.stat-number { font-size:2em; color:#10B981; font-weight:bold; }
+.skill-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; }
+.skill-item { background:#1a1a1a; padding:10px; border-left:4px solid #10B981; border-radius:8px; }
+.project-card { background:#1a1a1a; padding:20px; margin-bottom:20px; border-radius:15px; border:1px solid #333; }
+.project-card:hover { transform:translateY(-5px); border-color:#10B981; transition:.3s; }
+.contact-info { background:#1a1a1a; padding:30px; border-radius:15px; text-align:center; margin-top:20px; }
 </style>
 </head>
 <body>
 
-<nav>PASCHALA</nav>
+<!-- Header -->
+<header>
+<img src="images/paschala-logo.png" alt="Paschala Logo">
+<h1>Paschala</h1>
+<p>Computer Operator & Aspiring Developer</p>
+<a class="btn" onclick="scrollToSection('projects')">View My Work</a>
+<a class="btn" onclick="openContact()">Contact Me</a>
+<a class="btn" onclick="openSignup()">Sign Up</a>
+<a class="btn" onclick="openOrder()">Place Order</a>
+<a class="btn" href="files/Paschala_CV.pdf" download>Download CV</a>
+</header>
 
+<!-- About -->
+<section id="about">
+<h2>About Me</h2>
+<p>I'm a dedicated Computer Operator with 3 years of experience in data management, technical support, and office operations. Currently expanding skills into web development and game design.</p>
+<div class="stats">
+<div class="stat-box"><div class="stat-number">3</div>Years Experience</div>
+<div class="stat-box"><div class="stat-number">6</div>Projects</div>
+<div class="stat-box"><div class="stat-number">4</div>Skills Learning</div>
+<div class="stat-box"><div class="stat-number">1</div>Game Created</div>
+</div>
+</section>
+
+<!-- Skills -->
 <section>
-<h1>Paschal Azubuike</h1>
-<p>Web Developer • Game Creator • Tech Operator</p>
-<button onclick="contact()">Contact Me</button>
-<button onclick="document.getElementById('signup').scrollIntoView()">Client Sign Up</button>
-<button onclick="document.getElementById('services').scrollIntoView()">Services</button>
-<button onclick="document.getElementById('payments').scrollIntoView()">Payments</button>
-<button onclick="document.getElementById('admin').scrollIntoView()">Admin Dashboard</button>
-</section>
-
-<section id="services">
-<h2>Services</h2>
-
-<div class="card">
-<h3>Portfolio Website</h3>
-<p>₦30,000</p>
-<button onclick="order('Portfolio Website')">Order</button>
-</div>
-
-<div class="card">
-<h3>Business Website</h3>
-<p>₦50,000</p>
-<button onclick="order('Business Website')">Order</button>
-</div>
-
-<div class="card">
-<h3>Game Website</h3>
-<p>₦70,000</p>
-<button onclick="order('Game Website')">Order</button>
+<h2>Skills</h2>
+<div class="skill-list">
+<div class="skill-item">HTML (70%)</div>
+<div class="skill-item">CSS (60%)</div>
+<div class="skill-item">JavaScript (40%)</div>
+<div class="skill-item">Python (35%)</div>
+<div class="skill-item">Computer Operations (85%)</div>
+<div class="skill-item">Technical Support (80%)</div>
 </div>
 </section>
 
-<section id="payments">
-<h2>Payments</h2>
-
-<div class="card">
-<h3>OPay</h3>
-<p>Account Name: Azubuike Paschal Kamsiyochukwu</p>
-<p>Account Number: 9161362962</p>
-<button onclick="copyAcct()">Copy Account</button>
+<!-- Projects -->
+<section id="projects">
+<h2>Projects</h2>
+<div class="project-card">
+<span class="project-tag">HTML5 GAME</span>
+<h3>Paschala Racing 3D</h3>
+<p>Pseudo-3D racing game built with HTML5 canvas and JS with realistic driving physics.</p>
 </div>
-
-<div class="card">
-<h3>PalmPay</h3>
-<p>Account Name: Azubuike Paschal Kamsiyochukwu</p>
-<p>Account Number: 9161362962</p>
-<button onclick="copyAcct()">Copy Account</button>
+<div class="project-card">
+<span class="project-tag">Data Management</span>
+<h3>Office Database System</h3>
+<p>Excel-based inventory & employee record tracking system.</p>
 </div>
 </section>
 
-<section id="signup">
-<h2>Client Sign Up</h2>
-<input id="name" placeholder="Name"><br>
-<input id="email" placeholder="Email"><br>
-<input id="password" placeholder="Password"><br>
-<button onclick="signup()">Create Account</button>
-</section>
+<!-- Contact Modal -->
+<div id="contactModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); color:#fff; display:flex; justify-content:center; align-items:center; flex-direction:column;">
+<h2>Contact Me</h2>
+<p>Email: <a href="mailto:azubuikepaschal6@gmail.com?subject=I%20NEED%20YOUR%20SERVICE&body=Hello%20Paschala" style="color:#10B981;">azubuikepaschal6@gmail.com</a></p>
+<p>WhatsApp: <a href="https://wa.me/2349161362962?text=I%20NEED%20YOUR%20SERVICE" style="color:#10B981;">+2349161362962</a></p>
+<p>Snapchat: PaschalKamsi | TikTok: PaschalKamsi</p>
+<button onclick="closeContact()" class="btn">Close</button>
+</div>
 
-<section id="admin">
-<h2>Admin Dashboard</h2>
-<p>Offline order log:</p>
-<input id="newOrder" placeholder="Add new order">
-<button onclick="addOrder()">Add</button>
-<div id="orders"></div>
-</section>
+<!-- Signup Modal -->
+<div id="signupModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); color:#fff; display:flex; justify-content:center; align-items:center; flex-direction:column;">
+<h2>Sign Up</h2>
+<input type="text" placeholder="Full Name" id="signupName">
+<input type="email" placeholder="Email" id="signupEmail">
+<button onclick="alert('Thank you for signing up!')" class="btn">Submit</button>
+<button onclick="closeSignup()" class="btn">Close</button>
+</div>
 
-<section>
-<h2>Connect With Me</h2>
-<button onclick="window.open('https://wa.me/2349161362962?text=Hello Paschala I need a website')">WhatsApp</button>
-<button onclick="window.open('mailto:azubuikepaschal6@gmail.com')">Gmail</button>
-<button onclick="window.open('https://tiktok.com/@paschalkamsi')">TikTok</button>
-<button onclick="window.open('https://snapchat.com/add/paschalkamsi')">Snapchat</button>
-</section>
-
-<footer>
-<p>© 2026 Paschala</p>
-</footer>
-
-<div id="chatbot">
-<p id="botText">Hey 👋 I'm Paschala Bot 🤖<br>Need a website or just checking my boss out? 😎</p>
-<button onclick="chat('website')">Need Website</button>
-<button onclick="chat('price')">Price?</button>
-<button onclick="chat('hello')">Hello</button>
+<!-- Order Modal -->
+<div id="orderModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); color:#fff; display:flex; justify-content:center; align-items:center; flex-direction:column;">
+<h2>Place Order</h2>
+<input type="text" placeholder="Product / Service">
+<textarea placeholder="Details"></textarea>
+<button onclick="alert('Order saved offline!')" class="btn">Submit Order</button>
+<button onclick="closeOrder()" class="btn">Close</button>
 </div>
 
 <script>
-// Contact
-function contact(){
-let choice=prompt("Contact Paschala\n1 WhatsApp\n2 Gmail");
-if(choice==1) window.open("https://wa.me/2349161362962?text=Hello Paschala I need a website");
-else window.open("mailto:azubuikepaschal6@gmail.com");
-}
-
-// Order buttons
-function order(service){
-alert("Order clicked: "+service+"\nSend order via WhatsApp");
-window.open("https://wa.me/2349161362962?text=Hello Paschala I want "+service);
-}
-
-// Payments
-function copyAcct(){
-navigator.clipboard.writeText("9161362962");
-alert("Account number copied ✔");
-}
-
-// Client signup demo
-function signup(){
-let name=document.getElementById("name").value;
-alert("Welcome "+name+" 🎉 (Offline demo account created)");
-}
-
-// Admin offline orders
-let orders=[];
-function addOrder(){
-let val=document.getElementById("newOrder").value;
-if(val!=""){orders.push(val); displayOrders(); document.getElementById("newOrder").value="";}
-}
-function displayOrders(){
-document.getElementById("orders").innerHTML=orders.join("<br>");
-}
-
-// Chatbot
-function chat(type){
-let bot=document.getElementById("botText");
-if(type=="website"){
-bot.innerHTML="Nice 😎 My boss Paschala builds great websites. Check WhatsApp!";
-window.open("https://wa.me/2349161362962");
-}
-else if(type=="price"){
-bot.innerHTML="Websites start from ₦30,000 depending on the project.";
-}
-else{
-bot.innerHTML="Hello there 😂 Glad you stopped by!";
-}
-}
+function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+function openContact(){ document.getElementById('contactModal').style.display='flex'; }
+function closeContact(){ document.getElementById('contactModal').style.display='none'; }
+function openSignup(){ document.getElementById('signupModal').style.display='flex'; }
+function closeSignup(){ document.getElementById('signupModal').style.display='none'; }
+function openOrder(){ document.getElementById('orderModal').style.display='flex'; }
+function closeOrder(){ document.getElementById('orderModal').style.display='none'; }
 </script>
 
 </body>
