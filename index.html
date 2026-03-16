@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +28,6 @@ form { display:flex; flex-direction:column; }
 @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -197,8 +195,6 @@ if(method==='whatsapp'){ window.open(`https://wa.me/2349161362962?text=${message
 else if(method==='email'){ window.open(`mailto:azubuikepaschal6@gmail.com?subject=Order Request&body=${message}`,'_blank'); }
 else if(method==='snapchat'){ alert("Snapchat messages are not directly sendable. Username: PaschalKamsi"); }
 }
-
-// Counters Animation
 const counters=document.querySelectorAll('.counter');
 counters.forEach(counter=>{
 counter.innerText='0';
