@@ -1,12 +1,10 @@
-const CACHE_NAME = "paschala-v2-cache";
+const CACHE_NAME = "paschala-v3-online-cache-v1";
 const urlsToCache = [
   "/",
   "/index.html",
   "/admin.html",
   "/manifest.json",
-  "/sw.js",
-  "/files/Paschala_CV.pdf",
-  "/assets/images/logo.png"
+  "/sw.js"
 ];
 
 // Install Service Worker
@@ -16,7 +14,7 @@ self.addEventListener("install", event => {
   );
 });
 
-// Fetch assets from cache first
+// Fetch files from cache first, then online
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => response || fetch(event.request))
