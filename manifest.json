@@ -1,20 +1,21 @@
 {
-"name": "Paschala Web App",
-"short_name": "Paschala",
-"start_url": "index.html",
-"display": "standalone",
-"background_color": "#0a0a0a",
-"theme_color": "#10B981",
-"icons": [
-{
-"src": "Screenshot_20260312-131235.png",
-"sizes": "192x192",
-"type": "image/png"
-},
-{
-"src": "Screenshot_20260312-131235.png",
-"sizes": "512x512",
-"type": "image/png"
-}
-]
+  "name": "Paschala Portfolio V2",
+  "short_name": "PaschalaV2",
+  "description": "Offline portfolio of Paschala – Web Developer, Gamer, Technical Specialist",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#10B981",
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
