@@ -1,35 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Paschala Admin Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paschala Admin Dashboard V2</title>
 <style>
-body{background:#0a0a0a;color:white;font-family:Arial;text-align:center;}
-input{padding:10px;margin:5px;border-radius:6px;border:none;width:80%;}
-button{padding:10px;margin:5px;border-radius:6px;background:#10B981;color:white;border:none;cursor:pointer;}
-.card{background:#111;padding:15px;margin:15px;border-radius:10px;}
+body { font-family:Arial,sans-serif; background:#0f172a; color:white; padding:20px;}
+h1 { color:#10B981;}
+.card { background:#020617; padding:20px; border-radius:10px; margin-bottom:20px; border:1px solid #333;}
+.btn { background:#10B981; padding:10px 20px; border-radius:15px; color:white; display:inline-block; text-decoration:none; margin-top:10px;}
+.btn:hover { background:#059669;}
 </style>
 </head>
 <body>
 
-<h1>Paschala Admin Dashboard (Offline)</h1>
+<h1>Admin Dashboard V2</h1>
 
 <div class="card">
-<h3>Offline Order Log</h3>
-<input id="newOrder" placeholder="Add new order">
-<button onclick="addOrder()">Add</button>
-<div id="orders"></div>
+<h2>Orders</h2>
+<p>View all orders placed through the app.</p>
+<button class="btn" onclick="alert('Demo: Offline orders shown here')">View Orders</button>
 </div>
 
-<script>
-let orders=[];
-function addOrder(){
-let val=document.getElementById("newOrder").value;
-if(val!=""){orders.push(val); display(); document.getElementById("newOrder").value="";}
-}
-function display(){
-document.getElementById("orders").innerHTML=orders.join("<br>");
-}
-</script>
+<div class="card">
+<h2>Client Messages</h2>
+<p>Check messages sent via WhatsApp, Gmail, or Snapchat.</p>
+<button class="btn" onclick="alert('Demo: Offline messages shown here')">View Messages</button>
+</div>
+
+<div class="card">
+<h2>Manage Projects</h2>
+<p>Add or remove project cards and gaming highlights (demo offline only).</p>
+<button class="btn" onclick="alert('Demo: Manage projects offline')">Manage Projects</button>
+</div>
+
+<div class="card">
+<h2>Gaming Stats</h2>
+<p>Check CODM and eFootball statistics (offline demo).</p>
+<button class="btn" onclick="alert('Demo: Gaming stats shown here')">View Stats</button>
+</div>
 
 </body>
 </html>
