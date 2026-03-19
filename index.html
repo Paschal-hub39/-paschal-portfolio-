@@ -3,166 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paschala God Mode V3.3 Online</title>
-<link rel="manifest" href="manifest.json">
-
+<title>Paschala V4 Full App</title>
 <style>
-body {margin:0;font-family:Arial;background:#0f172a;color:white;}
-header {background:#020617;padding:15px;color:#10B981;text-align:center;}
-section{padding:20px;}
-h2{color:#10B981;margin-bottom:10px;}
-.card{background:#020617;padding:15px;margin:10px 0;border-radius:10px;}
-.btn{background:#10B981;padding:10px;border-radius:8px;display:inline-block;margin-top:10px;cursor:pointer;}
-.video-card{background:#020617;padding:10px;margin-top:10px;border-radius:10px;}
-#update{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#020617;justify-content:center;align-items:center;flex-direction:column;z-index:999;text-align:center;}
-.bar{width:80%;height:6px;background:#222;margin-top:20px;}
-.fill{height:100%;width:0%;background:#10B981;}
+body{margin:0;font-family:Arial;background:#0f111a;color:#fff;overflow-x:hidden;}
+#home{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;text-align:center;padding:20px;transition:0.3s;}
+#home h1{font-size:3em;color:#2ecc71;margin-bottom:10px;}
+#home p{font-size:1.3em;margin-bottom:30px;}
+#home button{padding:15px 35px;font-size:1em;border:none;border-radius:10px;background:#2ecc71;color:#fff;cursor:pointer;transition:0.2s;}
+#home button:hover{background:#27ae60;}
+#menu{position:fixed;top:0;left:-100%;width:100%;height:100%;background:#11141f;display:flex;flex-direction:column;padding-top:50px;transition:0.3s;z-index:1000;}
+#menu.active{left:0;}
+#menu button{background:none;border:none;color:#2ecc71;font-size:1.5em;padding:20px;text-align:left;cursor:pointer;transition:0.2s;}
+#menu button:hover{color:#fff;}
+.screen{position:fixed;top:0;left:100%;width:100%;height:100%;background:#0f111a;overflow-y:auto;padding:20px;transition:0.3s;z-index:900;}
+.screen.active{left:0;}
+.screen h2{color:#2ecc71;margin-bottom:20px;text-align:center;}
+.screen p{margin-bottom:15px;line-height:1.6;}
+.back-btn{margin-bottom:20px;padding:10px 20px;background:#2ecc71;border:none;border-radius:6px;cursor:pointer;color:#fff;transition:0.2s;}
+.back-btn:hover{background:#27ae60;}
+.detail-btn{padding:10px 15px;background:#27ae60;margin:5px 0;border:none;border-radius:6px;cursor:pointer;color:#fff;transition:0.2s;width:100%;text-align:left;}
+.detail-btn:hover{background:#2ecc71;}
+#detail{margin-top:20px;padding:15px;background:#020617;border-radius:8px;display:none;}
+input,textarea{width:100%;padding:10px;margin-bottom:10px;border-radius:6px;border:none;background:#020617;color:#fff;}
+input::placeholder,textarea::placeholder{color:#bbb;}
 </style>
 </head>
 <body>
 
-<header>Paschala God Mode V3.3 Online</header>
-
-<!-- ABOUT -->
-<section>
-<h2>About Me</h2>
-<div class="card">
-I am <b>Paschal Kamsiyochukwu</b>, a Web Developer, Tech Support Specialist, and Gamer.  
-I build websites, manage data, and help businesses grow online.
+<!-- Main Home Screen -->
+<div id="home">
+  <h1>Paschala V4</h1>
+  <p>Welcome! Explore coding, gaming, web design, and more in one interactive app.</p>
+  <button onclick="openMenu()">Explore App</button>
 </div>
-</section>
 
-<!-- SERVICES -->
-<section>
-<h2>Services</h2>
-<div class="card">Website Design</div>
-<div class="card">Website Development</div>
-<div class="card">Data Management</div>
-<div class="card">Technical Support</div>
-</section>
-
-<!-- PRICING -->
-<section>
-<h2>Pricing</h2>
-<div class="card">Basic Website – ₦20,000</div>
-<div class="card">Standard Website – ₦50,000</div>
-<div class="card">Premium Website – ₦100,000</div>
-</section>
-
-<!-- GAMING -->
-<section>
-<h2>Gaming</h2>
-<div class="card">CODM Player</div>
-<div class="card">eFootball Player</div>
-</section>
-
-<!-- VIDEOS -->
-<section>
-<h2>Gameplay Videos</h2>
-<div class="video-card">
-<video controls width="100%"><source src="https://drive.google.com/uc?export=download&id=1-xkMo0-VkRjZ_o1mtvC9ucxHH2b8YF3h"></video>
+<!-- Menu Overlay -->
+<div id="menu">
+  <button onclick="openSection('services')">Services</button>
+  <button onclick="openSection('pricing')">Pricing</button>
+  <button onclick="openSection('projects')">Projects</button>
+  <button onclick="openSection('gaming')">Gaming</button>
+  <button onclick="openSection('skills')">Skills</button>
+  <button onclick="openSection('funfacts')">Fun Facts</button>
+  <button onclick="openSection('testimonials')">Testimonials</button>
+  <button onclick="openSection('order')">Order</button>
+  <button onclick="openSection('contact')">Contact</button>
+  <button onclick="closeMenu()">Close Menu</button>
 </div>
-<div class="video-card">
-<video controls width="100%"><source src="https://drive.google.com/uc?export=download&id=1YhvRPLzgjDerqjMTQrSDfaLhF-by1w9e"></video>
+
+<!-- Services Screen -->
+<div id="services" class="screen">
+  <button class="back-btn" onclick="backToMenu('services')">← Back</button>
+  <h2>Services</h2>
+  <button class="detail-btn" onclick="showDetail('Website Design','I build responsive, modern websites tailored for performance, SEO, and security.')">Website Design</button>
+  <button class="detail-btn" onclick="showDetail('App Development','I create apps that function online/offline with custom features and smooth UI/UX.')">App Development</button>
+  <button class="detail-btn" onclick="showDetail('Technical Support','I troubleshoot issues, optimize systems, and provide fast solutions.')">Technical Support</button>
+  <div id="detail"></div>
 </div>
-<div class="video-card">
-<video controls width="100%"><source src="https://drive.google.com/uc?export=download&id=1kad7xfQLUPXxmOz1U3kyeKktm9lqdrhA"></video>
+
+<!-- Pricing Screen -->
+<div id="pricing" class="screen">
+  <button class="back-btn" onclick="backToMenu('pricing')">← Back</button>
+  <h2>Pricing</h2>
+  <p>Website Design: ₦20,000+</p>
+  <p>App Development: ₦50,000+</p>
+  <p>Technical Support: ₦3,000/hour</p>
 </div>
-<div class="video-card">
-<video controls width="100%"><source src="https://drive.google.com/uc?export=download&id=1WITe0NyF8fr76s1o5fNQo0SllTmuYso3"></video>
+
+<!-- Projects Screen -->
+<div id="projects" class="screen">
+  <button class="back-btn" onclick="backToMenu('projects')">← Back</button>
+  <h2>Projects</h2>
+  <button class="detail-btn" onclick="showDetail('Portfolio Website','A full-stack responsive portfolio website showcasing client projects.')">Portfolio Website</button>
+  <button class="detail-btn" onclick="showDetail('Gaming App','Interactive gaming tracker app with stats and highlights.')">Gaming App</button>
+  <button class="detail-btn" onclick="showDetail('E-commerce','E-commerce platform for online sales, payments, and management.')">E-commerce</button>
+  <div id="detail"></div>
 </div>
-</section>
 
-<!-- ORDER -->
-<section>
-<h2>Order Service</h2>
-<input id="name" placeholder="Your Name"><br><br>
-<input id="service" placeholder="Service Needed"><br><br>
-<textarea id="details" placeholder="Details"></textarea><br>
-<a class="btn" onclick="order('whatsapp')">Send via WhatsApp</a>
-<a class="btn" onclick="order('gmail')">Send via Gmail</a>
-</section>
+<!-- Gaming Screen -->
+<div id="gaming" class="screen">
+  <button class="back-btn" onclick="backToMenu('gaming')">← Back</button>
+  <h2>Gaming</h2>
+  <p>CODM player profile, eFootball stats, and top achievements highlighted.</p>
+  <p>Future updates will include interactive leaderboards and rankings.</p>
+</div>
 
-<!-- CONTACT -->
-<section>
-<h2>Contact</h2>
-<a class="btn" href="https://wa.me/2349161362962?text=I need your service">WhatsApp</a>
-<a class="btn" href="mailto:azubuikepaschal6@gmail.com">Gmail</a>
-<a class="btn" href="https://www.snapchat.com/add/PaschalKamsi">Snapchat</a>
-<a class="btn" href="https://www.tiktok.com/@PaschalKamsi">TikTok</a>
-</section>
+<!-- Skills Screen -->
+<div id="skills" class="screen">
+  <button class="back-btn" onclick="backToMenu('skills')">← Back</button>
+  <h2>Skills</h2>
+  <p>Web Development, App Development, Technical Support, Gaming, Coding.</p>
+  <p>Proficient in HTML, CSS, JS, Python, and multiple frameworks.</p>
+</div>
 
-<!-- PUSH NOTIFICATIONS -->
-<section>
-<h2>Enable Notifications</h2>
-<button class="btn" onclick="subscribe()">Subscribe</button>
-<p id="push-msg"></p>
-</section>
+<!-- Fun Facts Screen -->
+<div id="funfacts" class="screen">
+  <button class="back-btn" onclick="backToMenu('funfacts')">← Back</button>
+  <h2>Fun Facts</h2>
+  <p>I combine gaming with coding to create unique interactive apps.</p>
+  <p>I can develop a full website in a single day if needed.</p>
+</div>
 
-<!-- UPDATE SCREEN -->
-<div id="update">
-<h2>Updating App...</h2>
-<div class="bar"><div class="fill" id="fill"></div></div>
-<button class="btn" onclick="start()">Update Now</button>
+<!-- Testimonials Screen -->
+<div id="testimonials" class="screen">
+  <button class="back-btn" onclick="backToMenu('testimonials')">← Back</button>
+  <h2>Testimonials</h2>
+  <p>"Paschala is amazing! Website delivered ahead of schedule." – Client A</p>
+  <p>"Fast and professional development. Highly recommended." – Client B</p>
+</div>
+
+<!-- Order Screen -->
+<div id="order" class="screen">
+  <button class="back-btn" onclick="backToMenu('order')">← Back</button>
+  <h2>Order</h2>
+  <p>Fill in your order details and contact me directly:</p>
+  <input id="name" placeholder="Your Name">
+  <input id="service" placeholder="Service Needed">
+  <textarea id="details" placeholder="Details"></textarea>
+  <button onclick="order('whatsapp')">Send via WhatsApp</button>
+  <button onclick="order('gmail')">Send via Gmail</button>
+</div>
+
+<!-- Contact Screen -->
+<div id="contact" class="screen">
+  <button class="back-btn" onclick="backToMenu('contact')">← Back</button>
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:azubuikepaschal6@gmail.com">azubuikepaschal6@gmail.com</a></p>
+  <p>WhatsApp: <a href="https://wa.me/2349161362962?text=Hello" target="_blank">Message Me</a></p>
+  <p>Snapchat: Paschal kamsi</p>
+  <p>TikTok: Paschal kamsi</p>
 </div>
 
 <script>
-const CURRENT="3.3";
+function openMenu(){document.getElementById('menu').classList.add('active');}
+function closeMenu(){document.getElementById('menu').classList.remove('active');}
+function openSection(sectionId){closeMenu();document.getElementById(sectionId).classList.add('active');}
+function backToMenu(sectionId){document.getElementById(sectionId).classList.remove('active');openMenu();}
+function showDetail(title,text){const d=document.getElementById('detail');d.style.display='block';d.innerHTML=`<h3>${title}</h3><p>${text}</p>`;d.scrollIntoView({behavior:"smooth"});}
+function order(type){let n=document.getElementById('name').value,s=document.getElementById('service').value,d=document.getElementById('details').value,msg=`Name: ${n}%0AService: ${s}%0ADetails: ${d}`;if(type==="whatsapp")window.open(`https://wa.me/2349161362962?text=${msg}`);else window.open(`mailto:azubuikepaschal6@gmail.com?body=${msg}`);}
+</script>
 
-// CHECK UPDATE
-fetch("version.json")
-.then(r=>r.json())
-.then(d=>{
-if(d.version!==CURRENT){
-document.getElementById("update").style.display="flex";
-}
+<!-- OneSignal Push Notifications -->
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+window.OneSignal = window.OneSignal || [];
+OneSignal.push(function() {
+  OneSignal.init({
+    appId: "a160b701-4efc-42af-8859-6660bef73b28", // Your App ID
+    notifyButton: { enable:true },
+    allowLocalhostAsSecureOrigin:true
+  });
+  OneSignal.showNativePrompt();
 });
-
-// START UPDATE
-function start(){
-let f=document.getElementById("fill"), w=0;
-let i=setInterval(()=>{
-w+=20; f.style.width=w+"%";
-if(w>=100){
-clearInterval(i);
-caches.keys().then(n=>n.forEach(c=>caches.delete(c)));
-location.reload(true);
-}
-},200);
-}
-
-// ORDER
-function order(type){
-let n=document.getElementById("name").value;
-let s=document.getElementById("service").value;
-let d=document.getElementById("details").value;
-let msg=`Name: ${n}%0AService: ${s}%0ADetails: ${d}`;
-if(type==="whatsapp") window.open(`https://wa.me/2349161362962?text=${msg}`);
-else window.open(`mailto:azubuikepaschal6@gmail.com?body=${msg}`);
-}
-
-// SERVICE WORKER
-if('serviceWorker' in navigator){
-navigator.serviceWorker.register('sw.js');
-}
-
-// PUSH NOTIFICATIONS
-function urlBase64ToUint8Array(base64String){
-const padding='='.repeat((4-base64String.length%4)%4);
-const base64=(base64String+padding).replace(/\-/g,'+').replace(/_/g,'/');
-const rawData=window.atob(base64); const output=new Uint8Array(rawData.length);
-for(let i=0;i<rawData.length;i++){output[i]=rawData.charCodeAt(i);} return output;
-}
-
-function subscribe(){
-navigator.serviceWorker.ready.then(function(reg){
-const vapidPublicKey="BElpU...yourVAPIDkey"; // Replace with your real VAPID key
-const convertedKey=urlBase64ToUint8Array(vapidPublicKey);
-reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:convertedKey})
-.then(sub=>document.getElementById("push-msg").innerText="Subscribed to notifications ✅")
-.catch(err=>document.getElementById("push-msg").innerText="Subscription failed ❌");
-});
-}
 </script>
 
 </body>
