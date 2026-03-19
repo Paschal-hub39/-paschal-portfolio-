@@ -5,14 +5,18 @@
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#10B981",
+  "orientation": "portrait",
+  "description": "Paschal Kamsiyochukwu's Portfolio, Services, Gaming Showcase and Orders App",
   "icons": [
     {
-      "src": "https://via.placeholder.com/192",
+      "src": "icons/icon-192.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
-}
-{
-  "version": "3.3"
 }
