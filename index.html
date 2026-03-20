@@ -3,262 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paschala V5 - Full App</title>
+<title>Paschala V6</title>
+
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#0f111a;color:#fff;overflow-x:hidden;}
-#home{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;text-align:center;padding:20px;transition:0.3s;}
-#home h1{font-size:3em;color:#00ff99;margin-bottom:10px;}
-#home p{font-size:1.2em;margin-bottom:30px;}
-#home button{padding:15px 35px;font-size:1em;border:none;border-radius:12px;background:#00ff99;color:#111;cursor:pointer;transition:0.3s;}
-#home button:hover{background:#00cc77;}
-#menu{position:fixed;top:0;left:-100%;width:100%;height:100%;background:#11141f;display:flex;flex-direction:column;padding-top:50px;transition:0.3s;z-index:1000;}
-#menu.active{left:0;}
-#menu button{background:none;border:none;color:#00ff99;font-size:1.5em;padding:20px;text-align:left;cursor:pointer;transition:0.2s;}
-#menu button:hover{color:#fff;}
-.screen{position:fixed;top:0;left:100%;width:100%;height:100%;background:#0f111a;overflow-y:auto;padding:20px;transition:0.3s;z-index:900;}
-.screen.active{left:0;}
-.screen h2{color:#00ff99;margin-bottom:20px;text-align:center;}
-.screen p{margin-bottom:15px;line-height:1.6;}
-.back-btn{margin-bottom:20px;padding:10px 20px;background:#00ff99;border:none;border-radius:8px;cursor:pointer;color:#111;transition:0.2s;}
-.back-btn:hover{background:#00cc77;}
-.detail-btn{padding:10px 15px;background:#00cc77;margin:5px 0;border:none;border-radius:6px;cursor:pointer;color:#111;transition:0.2s;width:100%;text-align:left;}
-.detail-btn:hover{background:#00ff99;}
-#detail{margin-top:20px;padding:15px;background:#020617;border-radius:8px;display:none;}
-.card{background:#11141f;padding:15px;margin:10px 0;border-radius:10px;cursor:pointer;transition:0.3s;}
-.card:hover{background:#222539;}
-input,textarea{width:100%;padding:10px;margin-bottom:10px;border-radius:6px;border:none;background:#020617;color:#fff;}
-input::placeholder,textarea::placeholder{color:#bbb;}
-.icon{width:25px;height:25px;margin-right:10px;vertical-align:middle;}
+body{
+  margin:0;
+  font-family: system-ui;
+  background:#0d0d0f;
+  color:#fff;
+}
+
+/* Screens */
+.screen{
+  display:none;
+  padding:20px;
+}
+.active{display:block}
+
+/* Header */
+.header{
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:15px;
+}
+
+/* Cards */
+.card{
+  background:#1a1a1d;
+  padding:15px;
+  border-radius:15px;
+  margin-bottom:15px;
+  transition:0.2s;
+}
+.card:hover{transform:scale(1.02)}
+
+/* Bottom Nav */
+.nav{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#111;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+}
+.nav div{
+  text-align:center;
+  font-size:12px;
+  color:#aaa;
+}
+.nav i{
+  display:block;
+  font-size:24px;
+}
+
+/* Button */
+.btn{
+  background:#fff;
+  color:#000;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+  margin-top:10px;
+}
+
+/* Back */
+.back{
+  font-size:14px;
+  color:#aaa;
+  margin-bottom:10px;
+}
 </style>
 </head>
 <body>
 
-<!-- Home Screen -->
-<div id="home">
-  <h1>Paschala V5</h1>
-  <p>Explore coding, gaming, web design, and more in one interactive app.</p>
-  <button onclick="openMenu()">Explore App</button>
+<!-- HOME -->
+<div id="home" class="screen active">
+  <div class="header">Paschala</div>
+
+  <div class="card">
+    <h3>Welcome</h3>
+    <p>Modern coding, gaming & app experience.</p>
+  </div>
+
+  <div class="card" onclick="openScreen('journals')">
+    <h3>Latest Journal</h3>
+    <p>Level Up Coding...</p>
+  </div>
+
+  <div class="card" onclick="openScreen('achievements')">
+    <h3>Achievements</h3>
+    <p>See milestones & progress</p>
+  </div>
 </div>
 
-<!-- Menu -->
-<div id="menu">
-  <button onclick="openSection('services')">Services</button>
-  <button onclick="openSection('projects')">Projects</button>
-  <button onclick="openSection('gaming')">Gaming</button>
-  <button onclick="openSection('skills')">Skills</button>
-  <button onclick="openSection('funfacts')">Fun Facts</button>
-  <button onclick="openSection('journals')">Journals</button>
-  <button onclick="openSection('achievements')">Achievements</button>
-  <button onclick="openSection('testimonials')">Testimonials</button>
-  <button onclick="openSection('order')">Order</button>
-  <button onclick="openSection('contact')">Contact</button>
-  <button onclick="closeMenu()">Close Menu</button>
-</div>
-
-<!-- Services -->
-<div id="services" class="screen">
-  <button class="back-btn" onclick="backToMenu('services')">← Back</button>
-  <h2>Services</h2>
-  <div class="card" onclick="showDetail('Website Design','I build responsive, modern websites optimized for SEO and performance.')">Website Design</div>
-  <div class="card" onclick="showDetail('App Development','I create interactive apps with online/offline functionality and smooth UI.')">App Development</div>
-  <div class="card" onclick="showDetail('Technical Support','Fast troubleshooting, optimization, and system support.')">Technical Support</div>
-  <div id="detail"></div>
-</div>
-
-<!-- Projects -->
-<div id="projects" class="screen">
-  <button class="back-btn" onclick="backToMenu('projects')">← Back</button>
-  <h2>Projects</h2>
-  <div class="card" onclick="showDetail('Portfolio Website','A full-stack responsive portfolio website showcasing projects.')">Portfolio Website</div>
-  <div class="card" onclick="showDetail('Gaming Tracker','Interactive app for CODM and eFootball stats and highlights.')">Gaming Tracker</div>
-  <div class="card" onclick="showDetail('E-commerce','Online platform for sales, payments, and management.')">E-commerce Platform</div>
-</div>
-
-<!-- Gaming -->
-<div id="gaming" class="screen">
-  <button class="back-btn" onclick="backToMenu('gaming')">← Back</button>
-  <h2>Gaming</h2>
-  <p>CODM and eFootball stats, top scores, and TikTok highlights.</p>
-</div>
-
-<!-- Skills -->
-<div id="skills" class="screen">
-  <button class="back-btn" onclick="backToMenu('skills')">← Back</button>
-  <h2>Skills</h2>
-  <p>Web Development, App Development, Technical Support, Gaming, Coding.</p>
-</div>
-
-<!-- Fun Facts -->
-<div id="funfacts" class="screen">
-  <button class="back-btn" onclick="backToMenu('funfacts')">← Back</button>
-  <h2>Fun Facts</h2>
-  <p>I combine gaming with coding to create interactive apps.</p>
-</div>
-
-<!-- Journals -->
+<!-- JOURNALS -->
 <div id="journals" class="screen">
-  <button class="back-btn" onclick="backToMenu('journals')">← Back</button>
-  <h2>Journals & Stories</h2>
-  <div id="journalList"></div>
+  <div class="back" onclick="openScreen('home')">← Back</div>
+  <div class="header">Journals</div>
+
+  <div class="card" onclick="readJournal(0)">
+    <h3>Level Up Coding</h3>
+    <p>From beginner to mastery...</p>
+  </div>
+
+  <div class="card" onclick="readJournal(1)">
+    <h3>Gaming Chronicles</h3>
+    <p>CODM & eFootball journey...</p>
+  </div>
 </div>
 
-<!-- Achievements -->
+<!-- JOURNAL FULL -->
+<div id="journalFull" class="screen">
+  <div class="back" onclick="openScreen('journals')">← Back</div>
+  <div id="journalContent"></div>
+</div>
+
+<!-- ACHIEVEMENTS -->
 <div id="achievements" class="screen">
-  <button class="back-btn" onclick="backToMenu('achievements')">← Back</button>
-  <h2>Achievements</h2>
-  <div id="achievementsList"></div>
+  <div class="back" onclick="openScreen('home')">← Back</div>
+  <div class="header">Achievements</div>
+
+  <div class="card">
+    <h3>First App Released</h3>
+    <p>Built a full interactive app with navigation & features.</p>
+  </div>
+
+  <div class="card">
+    <h3>First Website Sold</h3>
+    <p>Delivered a complete client project successfully.</p>
+  </div>
+
+  <div class="card">
+    <h3>CODM Victory</h3>
+    <p>Won competitive matches using strategy & skill.</p>
+  </div>
 </div>
 
-<!-- Testimonials -->
-<div id="testimonials" class="screen">
-  <button class="back-btn" onclick="backToMenu('testimonials')">← Back</button>
-  <h2>Testimonials</h2>
-  <p>"Paschala is amazing! Website delivered ahead of schedule." – Client A</p>
-  <p>"Fast and professional development. Highly recommended." – Client B</p>
+<!-- PROFILE -->
+<div id="profile" class="screen">
+  <div class="header">Profile</div>
+
+  <div class="card">
+    <h3>Paschal</h3>
+    <p>Developer | Gamer | Creator</p>
+  </div>
+
+  <div class="card">
+    <h3>Contact</h3>
+    <p>WhatsApp, Gmail, Snapchat, TikTok</p>
+  </div>
 </div>
 
-<!-- Order -->
-<div id="order" class="screen">
-  <button class="back-btn" onclick="backToMenu('order')">← Back</button>
-  <h2>Order</h2>
-  <input id="name" placeholder="Your Name">
-  <input id="service" placeholder="Service Needed">
-  <textarea id="details" placeholder="Details"></textarea>
-  <button onclick="order('whatsapp')">Send via WhatsApp</button>
-  <button onclick="order('gmail')">Send via Gmail</button>
-</div>
-
-<!-- Contact -->
-<div id="contact" class="screen">
-  <button class="back-btn" onclick="backToMenu('contact')">← Back</button>
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:azubuikepaschal6@gmail.com">azubuikepaschal6@gmail.com</a></p>
-  <p>WhatsApp: <a href="https://wa.me/2349161362962?text=Hello" target="_blank">Message Me</a></p>
-  <p>Snapchat: Paschal kamsi</p>
-  <p>TikTok: Paschal kamsi</p>
+<!-- NAVIGATION -->
+<div class="nav">
+  <div onclick="openScreen('home')">
+    <i class="material-icons">home</i>Home
+  </div>
+  <div onclick="openScreen('journals')">
+    <i class="material-icons">menu_book</i>Journals
+  </div>
+  <div onclick="openScreen('achievements')">
+    <i class="material-icons">emoji_events</i>Achievements
+  </div>
+  <div onclick="openScreen('profile')">
+    <i class="material-icons">person</i>Profile
+  </div>
 </div>
 
 <script>
-// Navigation
-function openMenu(){document.getElementById('menu').classList.add('active');}
-function closeMenu(){document.getElementById('menu').classList.remove('active');}
-function openSection(sectionId){closeMenu();document.getElementById(sectionId).classList.add('active');}
-function backToMenu(sectionId){document.getElementById(sectionId).classList.remove('active');openMenu();}
-function showDetail(title,text){const d=document.getElementById('detail');d.style.display='block';d.innerHTML=`<h3>${title}</h3><p>${text}</p>`;d.scrollIntoView({behavior:"smooth"});}
-
-// Orders
-function order(type){
-  let n=document.getElementById('name').value,
-      s=document.getElementById('service').value,
-      d=document.getElementById('details').value,
-      msg=`Name: ${n}%0AService: ${s}%0ADetails: ${d}`;
-  if(type==="whatsapp") window.open(`https://wa.me/2349161362962?text=${msg}`);
-  else window.open(`mailto:azubuikepaschal6@gmail.com?body=${msg}`);
+function openScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 
-// Journals
 const journals=[
-{
-title:"Level Up Coding",
-snippet:"From lines of code to epic apps, debug your dreams, avoid all gaps...",
-full:`Paragraph 1: From lines of code to epic apps, debug your dreams, avoid all gaps.
-Paragraph 2: Loops, objects, arrays, building logic like a symphony. Errors teach patience, testing refines creations.
-Paragraph 3: Front-end visuals, UI glow, responsive design makes users go “Whoa!”
-Paragraph 4: Back-end magic, databases, APIs, secure authentication, sessions maintained.
-Paragraph 5: Deploy to cloud, push notifications, app alive, users thrive.`
-},
-{
-title:"Gaming Chronicles",
-snippet:"CODM battles, eFootball feats, each victory a tale...",
-full:`Paragraph 1: CODM battles, eFootball feats, victories repeated. Epic headshots, strategies, each moment thrills.
-Paragraph 2: Clans unite, tournaments fought, analyzing replays, improving tactics taught.
-Paragraph 3: Streaming highlights, TikTok fame, sharing journey, earning acclaim.
-Paragraph 4: Leveling up, unlocking skins, mastering maps, embracing wins.
-Paragraph 5: Casual matches to championship rounds, gaming skill and stories abound.`
-},
-{
-title:"Web Design Secrets",
-snippet:"Colors, grids, responsive flow, create websites that steal the show...",
-full:`Paragraph 1: Colors, grids, responsive flow, websites steal the show.
-Paragraph 2: Wireframes, planning, elements structured.
-Paragraph 3: SEO optimized, fast loading, responsive across devices.
-Paragraph 4: Testing, debugging, iterating designs, final touches perfected.
-Paragraph 5: Deployment live, portfolio shines, web design is storytelling.`
-},
-{
-title:"App Dev Adventures",
-snippet:"From concept to launch, follow the journey through app creation...",
-full:`Paragraph 1: Every app starts as an idea, sketches mapped, details considered.
-Paragraph 2: Coding begins, variables declared, classes built, testing methods.
-Paragraph 3: APIs integrated, database structured, UI polished.
-Paragraph 4: Beta testing, feedback collected, bugs fixed, features perfected.
-Paragraph 5: Launch day arrives, reviews flow in, app live, lessons learned.`
-}
+`<h2>Level Up Coding</h2>
+<p>This is your full long-form story... (expand later)</p>`,
+
+`<h2>Gaming Chronicles</h2>
+<p>This is your gaming story... (expand later)</p>`
 ];
 
-const journalList=document.getElementById('journalList');
-journals.forEach((j)=>{
-  const c=document.createElement('div');
-  c.className='card';
-  c.innerHTML=`<h3>${j.title}</h3><p>${j.snippet}</p>`;
-  c.onclick=()=>alert(j.full);
-  journalList.appendChild(c);
-});
-
-// Achievements
-const achievements=[
-{
-title:"First Website Built",
-detail:"Designed and launched my first portfolio website, fully responsive, SEO optimized. Learned planning, coding, testing, and client interaction."
-},
-{
-title:"First App Released",
-detail:"Created and released my first interactive app with multiple sections, smooth UI, push notifications, and online/offline modes."
-},
-{
-title:"CODM Championship",
-detail:"Secured top victory in a CODM tournament, mastered strategy, teamwork, and precision under pressure."
-},
-{
-title:"eFootball Top Stats",
-detail:"Recorded top scores in eFootball, analyzed strategies, and maintained high rankings."
-},
-{
-title:"First Client Website Sold",
-detail:"Delivered a professional website to a paying client, handling design, deployment, and maintenance."
-},
-{
-title:"Coding Marathon Completed",
-detail:"Completed a 24-hour coding marathon, building multiple projects, testing, debugging, and learning new frameworks."
-},
-{
-title:"TikTok Gaming Highlights Published",
-detail:"Recorded, edited, and uploaded TikTok gaming videos, engaging audience and building followers."
+function readJournal(i){
+  document.getElementById('journalContent').innerHTML=journals[i];
+  openScreen('journalFull');
 }
-];
-
-const achievementsList=document.getElementById('achievementsList');
-achievements.forEach(a=>{
-  const c=document.createElement('div');
-  c.className='card';
-  c.innerHTML=`<strong>${a.title}</strong><p>${a.detail}</p>`;
-  achievementsList.appendChild(c);
-});
-</script>
-
-<!-- OneSignal Push Notifications -->
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-window.OneSignal = window.OneSignal || [];
-OneSignal.push(function(){
-  OneSignal.init({
-    appId:"a160b701-4efc-42af-8859-6660bef73b28",
-    notifyButton:{enable:true},
-    allowLocalhostAsSecureOrigin:true
-  });
-  OneSignal.showNativePrompt();
-});
 </script>
 
 </body>
-</html>
+</html> to
