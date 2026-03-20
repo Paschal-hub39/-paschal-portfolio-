@@ -337,33 +337,49 @@ body{
   </div>
 </div>
 
+
 <script>
-function openScreen(id){
-  const screens = document.querySelectorAll('.screen');
+function openScreen(id) {
+    // 1. Find all elements with the class 'screen'
+    const screens = document.querySelectorAll('.screen');
+    
+    // 2. Remove the 'active' class from all of them
+    screens.forEach(screen => {
+        screen.classList.remove('active');
+    });
 
-  screens.forEach(screen=>{
-    screen.style.display = "none";
-  });
-
-  const target = document.getElementById(id);
-  if(target){
-    target.style.display = "block";
-  }
+    // 3. Add the 'active' class to the one we want to see
+    const target = document.getElementById(id);
+    if (target) {
+        target.classList.add('active');
+        // Scroll to top when switching screens
+        window.scrollTo(0, 0); 
+    }
 }
 
-const journals=[
-`<h2>Level Up Coding</h2>
-<p>This is your full long-form story... (expand later)</p>`,
-
-`<h2>Gaming Chronicles</h2>
-<p>This is your gaming story... (expand later)</p>`
+const journals = [
+    `<h2>Level Up Coding</h2>
+     <p>This is your full long-form story... (expand later)</p>`,
+    `<h2>Gaming Chronicles</h2>
+     <p>This is your gaming story... (expand later)</p>`,
+    `<h2>Web Design Secrets</h2>
+     <p>Design starts with structure...</p>`,
+    `<h2>App Dev Journey</h2>
+     <p>From idea to launch...</p>`,
+    `<h2>Rise of Paschala</h2>
+     <p>The full evolution of the brand...</p>`
 ];
 
-function readJournal(i){
-  document.getElementById('journalContent').innerHTML=journals[i];
-  openScreen('journalFull');
+function openJournal(i) {
+    // Matches the ID "readerContent" from your HTML line 237
+    const contentArea = document.getElementById('readerContent');
+    if (contentArea) {
+        contentArea.innerHTML = journals[i];
+        openScreen('reader'); // Matches id="reader" from line 235
+    }
 }
 </script>
+
 
 </body>
 </html> 
