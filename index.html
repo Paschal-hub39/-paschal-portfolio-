@@ -102,24 +102,38 @@ body{
 
 <!-- JOURNALS -->
 <div id="journals" class="screen">
-  <div class="back" onclick="openScreen('home')">← Back</div>
   <div class="header">Journals</div>
 
-  <div class="card" onclick="readJournal(0)">
+  <div class="card" onclick="openJournal(0)">
     <h3>Level Up Coding</h3>
     <p>From beginner to mastery...</p>
   </div>
 
-  <div class="card" onclick="readJournal(1)">
+  <div class="card" onclick="openJournal(1)">
     <h3>Gaming Chronicles</h3>
     <p>CODM & eFootball journey...</p>
   </div>
+
+  <div class="card" onclick="openJournal(2)">
+    <h3>Web Design Secrets</h3>
+    <p>Design like a pro...</p>
+  </div>
+
+  <div class="card" onclick="openJournal(3)">
+    <h3>App Dev Journey</h3>
+    <p>From idea to launch...</p>
+  </div>
+
+  <div class="card" onclick="openJournal(4)">
+    <h3>Rise of Paschala</h3>
+    <p>Your full story...</p>
+  </div>
 </div>
 
-<!-- JOURNAL FULL -->
-<div id="journalFull" class="screen">
+<!-- JOURNAL READER (IN-APP) -->
+<div id="reader" class="screen">
   <div class="back" onclick="openScreen('journals')">← Back</div>
-  <div id="journalContent"></div>
+  <div id="readerContent"></div>
 </div>
 
 <!-- ACHIEVEMENTS -->
