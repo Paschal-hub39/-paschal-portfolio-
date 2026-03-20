@@ -339,8 +339,16 @@ body{
 
 <script>
 function openScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  const screens = document.querySelectorAll('.screen');
+
+  screens.forEach(screen=>{
+    screen.style.display = "none";
+  });
+
+  const target = document.getElementById(id);
+  if(target){
+    target.style.display = "block";
+  }
 }
 
 const journals=[
